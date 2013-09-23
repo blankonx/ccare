@@ -1,0 +1,1091 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0037)http://pines.sourceforge.net/pnotify/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Pines Notify</title>
+		<!-- Dev Notice -->
+		<link href="./Pines Notify_files/devnote.css" rel="stylesheet" type="text/css">
+		<!-- jQuery -->
+		<script type="text/javascript" src="./Pines Notify_files/jquery.js"></script>
+		<!-- jQuery UI -->
+		<link href="./Pines Notify_files/jquery-ui.css" media="all" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="./Pines Notify_files/jquery-ui.js"></script>
+		<!-- Theme Switcher Widget -->
+		<script type="text/javascript" src="./Pines Notify_files/saved_resource"></script>
+		<!-- Oxygen Icons -->
+		<link href="./Pines Notify_files/icons.css" rel="stylesheet" type="text/css">
+		<!-- Pines Notify -->
+		<script type="text/javascript" src="./Pines Notify_files/jquery.pnotify.js"></script>
+		<link href="./Pines Notify_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+		<link href="./Pines Notify_files/jquery.pnotify.default.icons.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			/* <![CDATA[ */
+			html, body {
+				font-family: 'Palatino Linotype','Book Antiqua',Palatino,serif;
+				font-size: .92em;
+			}
+			.wrapper {
+				background: transparent url(includes/watermark-small.png) no-repeat fixed bottom right;
+				padding: 10px;
+			}
+			.wrapper.background {
+				background: transparent url(includes/hoot.jpg) repeat scroll top center;
+				/* http://www.flickr.com/photos/barloventomagico/2435316564/ */
+			}
+			.wrapper.background, .wrapper.background a, .wrapper.background .ui-widget-content {
+				color: white;
+				text-shadow: 2px 2px 1px black;
+			}
+			#header {
+				height: 68px;
+				position: relative;
+			}
+			#switcher-container {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+			#header img.header {
+				position: absolute;
+			}
+			#header h1.header {
+				text-align: center;
+			}
+			.main-description {
+				font-size: 1.2em;
+			}
+			h2 {
+				margin: .83em 0 .1em 0;
+			}
+			p {
+				margin: 1em 0 .5em 0;
+			}
+			.featurelist {
+				background: transparent none no-repeat 0 0 !important;
+				margin: .5em 10px .5em 0;
+				padding: .5em;
+				float: left;
+			}
+			.featurelist ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			.featurelist ul a {
+				text-decoration: underline !important;
+			}
+			.featurelist ul .ui-icon {
+				display: inline-block;
+				position: relative;
+				top: 4px;
+				margin-right: .3em;
+			}
+			.featurelist ul img {
+				vertical-align: middle;
+				border: none 0;
+			}
+			.pf-group {
+				background: transparent none no-repeat 0 0 !important;
+				padding: 4px;
+				margin: 5px auto;
+			}
+			.ui-widget {
+				font-size: 75% !important;
+			}
+			.pf-group input.ui-button {
+				padding: 2px !important;
+				font-size: .92em !important;
+				margin-bottom: 3px;
+			}
+
+			/* Custom styled notice CSS */
+			.ui-pnotify.custom {
+				font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+				font-weight: bold;
+				text-shadow: 1px 1px 0.5px black;
+			}
+			.ui-pnotify.custom .ui-pnotify-container {
+				background-color: #666;
+				background-image: none;
+				border: none;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+				border-radius: 10px;
+			}
+			.ui-pnotify.custom .ui-pnotify-title {
+				font-size: 15pt;
+				color: #FFF;
+			}
+			.ui-pnotify.custom .ui-pnotify-text {
+				font-size: 11pt;
+				color: #FFF;
+			}
+			.ui-pnotify.custom .ui-pnotify-closer {
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+			}
+			.ui-pnotify.custom .ui-pnotify-icon {
+				float: right;
+			}
+			.ui-pnotify.custom .picon {
+				margin: 3px;
+				width: 33px;
+				height: 33px;
+			}
+
+			/* Alternate stack initial positioning. */
+			.ui-pnotify.stack-topleft {
+				top: 15px;
+				left: 15px;
+				right: auto;
+			}
+			.ui-pnotify.stack-bottomleft {
+				bottom: 15px;
+				left: 15px;
+				top: auto;
+				right: auto;
+			}
+			/* This one is done through code, to show how it is done. Look down
+			   at the stack_bottomright variable in the JavaScript below. */
+			.ui-pnotify.stack-bottomright {
+				/* These are just CSS default values to reset the pnotify CSS. */
+				right: auto;
+				top: auto;
+			}
+			.ui-pnotify.stack-custom {
+				top: 20%;
+				left: 20%;
+				right: auto;
+			}
+			.ui-pnotify.stack-custom2 {
+				top: auto;
+				left: auto;
+				bottom: 20%;
+				right: 20%;
+			}
+			/* ]]> */
+		</style>
+		<!--[if lt IE 8]>
+		<style type="text/css">
+			.featurelist ul {
+				padding-left: 1em;
+				list-style-type: disc;
+			}
+			.featurelist ul .ui-icon {
+				display: none;
+			}
+		</style>
+		<![endif]-->
+		<script type="text/javascript">
+			// <![CDATA[
+
+			var permanotice;
+			var tooltip;
+			var _alert;
+			var credit_shown = false;
+
+			$(document).ready(function(){
+				// This is how to change the default settings for the entire page.
+				//$.pnotify.defaults.pnotify_width = "400px";
+				// If you don't want new lines ("\n") automatically converted to breaks ("<br />")
+				//$.pnotify.defaults.pnotify_insert_brs = false;
+
+				$.pnotify({
+					pnotify_title: "Pines Notify",
+					pnotify_text: "Welcome. Try hovering over me. You can click things behind me.",
+					pnotify_nonblock: true,
+					pnotify_mouse_reset: false,
+					pnotify_before_close: function(pnotify){
+						// You can access the notice's options with this. It is read only.
+						//pnotify.opts.pnotify_text;
+
+						// You can change the notice's options after the timer like this:
+						pnotify.pnotify({
+							pnotify_title: pnotify.opts.pnotify_title+" - Enjoy your Stay",
+							pnotify_before_close: null
+						});
+						pnotify.pnotify_queue_remove();
+						return false;
+					}
+				});
+
+				// This notice is used as a tooltip.
+				tooltip = $.pnotify({
+					pnotify_title: "Tooltip",
+					pnotify_text: "I'm not in a stack. I'm positioned like a tooltip with JavaScript.",
+					pnotify_hide: false,
+					pnotify_closer: false,
+					pnotify_history: false,
+					pnotify_animate_speed: 100,
+					pnotify_opacity: .9,
+					pnotify_notice_icon: "ui-icon ui-icon-comment",
+					// Setting stack to false causes Pines Notify to ignore this notice when positioning.
+					pnotify_stack: false,
+					pnotify_after_init: function(pnotify){
+						// Remove the notice if the user mouses over it.
+						pnotify.mouseout(function(){
+							pnotify.pnotify_remove();
+						});
+					},
+					pnotify_before_open: function(pnotify){
+						// This prevents the notice from displaying when it's created.
+						pnotify.pnotify({
+							pnotify_before_open: null
+						});
+						return false;
+					}
+				});
+
+				$(".wrapper :button").button();
+
+				if ($.fn.themeswitcher) {
+					$('#switcher').themeswitcher();
+				} else {
+					$('#switcher').html("Couldn't load theme switcher widget.")
+				}
+			});
+
+			function show_rich() {
+				$.pnotify({
+					pnotify_title: '<span style="color: green;">Rich Content Notice</span>',
+					pnotify_text: '<span style="color: blue;">Look at my beautiful <strong>strong</strong>, <em>emphasized</em>, and <span style="font-size: 1.5em;">large</span> text.</span>'
+				});
+			}
+
+			function consume_alert() {
+				if (_alert) return;
+				_alert = window.alert;
+				window.alert = function(message) {
+					$.pnotify({
+						pnotify_title: 'Alert',
+						pnotify_text: message
+					});
+				};
+			}
+
+			function release_alert() {
+				if (!_alert) return;
+				window.alert = _alert;
+				_alert = null;
+			}
+
+			function fake_load() {
+				var cur_value = 1;
+				var progress;
+
+				// Make a loader.
+				var loader = $.pnotify({
+					pnotify_title: "Fake Load",
+					pnotify_text: "<div class=\"progress_bar\" />",
+					pnotify_notice_icon: 'picon picon-throbber',
+					pnotify_hide: false,
+					pnotify_closer: false,
+					pnotify_history: false,
+					pnotify_before_open: function(pnotify){
+						progress = pnotify.find("div.progress_bar");
+						progress.progressbar({value: cur_value});
+						// Pretend to do something.
+						var timer = setInterval(function(){
+							if (cur_value >= 100) {
+								// Remove the interval.
+								window.clearInterval(timer);
+								loader.pnotify_remove();
+								return;
+							}
+							//cur_value += Math.ceil(3 * ((100 - cur_value) / 100));
+							cur_value += .3;
+							progress.progressbar('option', 'value', cur_value);
+						}, 2);
+					}
+				});
+			}
+
+			function dyn_notice() {
+				var percent = 0;
+				var notice = $.pnotify({
+					pnotify_title: "Please Wait",
+					pnotify_notice_icon: 'picon picon-throbber',
+					pnotify_hide: false,
+					pnotify_closer: false,
+					pnotify_opacity: .75,
+					pnotify_width: "150px"
+				});
+
+				setTimeout(function(){
+					notice.pnotify({pnotify_title: false});
+					var interval = setInterval(function(){
+						percent += 2;
+						var options = {
+							pnotify_text: percent+"% complete."
+						};
+						if (percent == 80)
+							options.pnotify_title = "Almost There";
+						if (percent >= 100) {
+							window.clearInterval(interval);
+							options.pnotify_title = "Done!";
+							options.pnotify_hide = true;
+							options.pnotify_closer = true;
+							options.pnotify_notice_icon = 'picon picon-task-complete';
+							options.pnotify_opacity = 1;
+							options.pnotify_shadow = true;
+							options.pnotify_width = $.pnotify.defaults.pnotify_width;
+							//options.pnotify_min_height = "300px";
+						}
+						notice.pnotify(options);
+					}, 120);
+				}, 2000);
+			}
+
+			function timed_notices(n) {
+				var start_time = new Date().getTime();
+				var end_time;
+				var notices_left = n;
+				for (var i = 0; i < n; i++) {
+					$.pnotify({
+						pnotify_title: "Notice Benchmark",
+						pnotify_text: "Testing notice speed.",
+						pnotify_animation: 'none',
+						pnotify_delay: 0,
+						pnotify_history: false,
+						pnotify_after_close: function(pnotify){
+							notices_left--;
+							if (notices_left > 0)
+								return;
+							end_time = new Date().getTime();
+							alert("Testing complete:\n\nTotal Notices: "+n+
+								"\nTotal Time: "+(end_time - start_time)+"ms ("+((end_time - start_time) / 1000)+"s)"+
+								"\nAverage Time: "+((end_time - start_time) / n)+"ms ("+((end_time - start_time) / n / 1000)+"s)")
+						}
+					});
+				}
+			}
+
+			/*********** Custom Stacks ***********
+			 * A stack is an object which Pines Notify uses to determine where
+			 * to position notices. A stack has two mandatory variables, dir1
+			 * and dir2. dir1 is the first direction in which the notices are
+			 * stacked. When the notices run out of room in the window, they
+			 * will move over in the direction specified by dir2. The directions
+			 * can be "up", "down", "right", or "left". Stacks are independent
+			 * of each other, so a stack doesn't know and doesn't care if it
+			 * overlaps (and blocks) another stack. The default stack, which can
+			 * be changed like any other default, goes down, then left. Stack
+			 * objects are used and manipulated by Pines Notify, and therefore,
+			 * should be a variable when passed. So, calling something like
+			 *
+			 * $.pnotify({pnotify_stack: {"dir1": "down", "dir2": "left"}});
+			 *
+			 * will NOT work. It will create a notice, but that notice will be
+			 * in its own stack and may overlap other notices.
+			 */
+			var stack_topleft = {"dir1": "down", "dir2": "right", "push": "top"};
+			var stack_bottomleft = {"dir1": "right", "dir2": "up"};
+			var stack_custom = {"dir1": "right", "dir2": "down"};
+			var stack_custom2 = {"dir1": "left", "dir2": "up", "push": "top"};
+			/*********** Positioned Stack ***********
+			 * This stack is initially positioned through code instead of CSS.
+			 * This is done through two extra variables. firstpos1 and firstpos2
+			 * are pixel values, relative to a viewport edge. dir1 and dir2,
+			 * respectively, determine which edge. It is calculated as follows:
+			 *
+			 * - dir = "up" - firstpos is relative to the bottom of viewport.
+			 * - dir = "down" - firstpos is relative to the top of viewport.
+			 * - dir = "right" - firstpos is relative to the left of viewport.
+			 * - dir = "left" - firstpos is relative to the right of viewport.
+			 */
+			var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 15, "firstpos2": 15};
+
+			function show_stack_topleft(err) {
+				var opts = {
+					pnotify_title: "Over Here",
+					pnotify_text: "Check me out. I'm in a different stack.",
+					pnotify_addclass: "stack-topleft",
+					pnotify_stack: stack_topleft
+				};
+				if (err) {
+					opts.pnotify_title = "Oh No";
+					opts.pnotify_text = "Watch out for that water tower!";
+					opts.pnotify_type = "error";
+				}
+				$.pnotify(opts);
+			};
+			function show_stack_bottomleft(err) {
+				var opts = {
+					pnotify_title: "Over Here",
+					pnotify_text: "Check me out. I'm in a different stack.",
+					pnotify_addclass: "stack-bottomleft",
+					pnotify_stack: stack_bottomleft
+				};
+				if (err) {
+					opts.pnotify_title = "Oh No";
+					opts.pnotify_text = "Watch out for that water tower!";
+					opts.pnotify_type = "error";
+				}
+				$.pnotify(opts);
+			};
+			function show_stack_bottomright(err) {
+				var opts = {
+					pnotify_title: "Over Here",
+					pnotify_text: "Check me out. I'm in a different stack.",
+					pnotify_addclass: "stack-bottomright",
+					pnotify_stack: stack_bottomright
+				};
+				if (err) {
+					opts.pnotify_title = "Oh No";
+					opts.pnotify_text = "Watch out for that water tower!";
+					opts.pnotify_type = "error";
+				}
+				$.pnotify(opts);
+			};
+			function show_stack_custom(err) {
+				var opts = {
+					pnotify_title: "Over Here",
+					pnotify_text: "Check me out. I'm in a different stack.",
+					pnotify_addclass: "stack-custom",
+					pnotify_stack: stack_custom
+				};
+				if (err) {
+					opts.pnotify_title = "Oh No";
+					opts.pnotify_text = "Watch out for that water tower!";
+					opts.pnotify_type = "error";
+				}
+				$.pnotify(opts);
+			};
+			function show_stack_custom2(err) {
+				var opts = {
+					pnotify_title: "Over Here",
+					pnotify_text: "Check me out. I'm in a different stack.",
+					pnotify_addclass: "stack-custom2",
+					pnotify_stack: stack_custom2
+				};
+				if (err) {
+					opts.pnotify_title = "Oh No";
+					opts.pnotify_text = "Watch out for that water tower!";
+					opts.pnotify_type = "error";
+				}
+				$.pnotify(opts);
+			};
+			var info_box;
+			function show_stack_info() {
+				var modal_overlay;
+				if (info_box) {
+					info_box.pnotify_display();
+					return;
+				}
+				info_box = $.pnotify({
+					pnotify_title: "Pines Notify Stacks",
+					pnotify_text: "Stacks are used to position notices and determine where new notices will go when they're created. Each notice that's placed into a stack will be positioned related to the other notices in that stack. There is no limit to the number of stacks, and no limit to the number of notices in each stack.",
+					pnotify_notice_icon: "picon picon-object-order-raise",
+					pnotify_delay: 20000,
+					pnotify_history: false,
+					pnotify_stack: false,
+					pnotify_before_open: function(pnotify){
+						// Position this notice in the center of the screen.
+						pnotify.css({
+							"top": ($(window).height() / 2) - (pnotify.height() / 2),
+							"left": ($(window).width() / 2) - (pnotify.width() / 2)
+						});
+						// Make a modal screen overlay.
+						if (modal_overlay)
+							modal_overlay.fadeIn("fast");
+						else
+							modal_overlay = $("<div />", {
+								"class": "ui-widget-overlay",
+								"css": {
+									"display": "none",
+									"position": "fixed",
+									"top": "0",
+									"bottom": "0",
+									"right": "0",
+									"left": "0"
+								}
+							}).appendTo("body").fadeIn("fast");
+					},
+					pnotify_before_close: function(){
+						modal_overlay.fadeOut("fast");
+					}
+				});
+			};
+
+			// ]]>
+		</script>
+		<!-- Pines Form (For the form notice.) -->
+		<link href="./Pines Notify_files/pform.css" media="all" rel="stylesheet" type="text/css">
+		<!--[if lt IE 8]>
+		<link href="includes/pform-ie-lt-8.css" media="all" rel="stylesheet" type="text/css" />
+		<![endif]-->
+		<style type="text/css">
+			/* <![CDATA[ */
+			.pform_custom div.pf-element .pf-label, .pform_custom div.pf-element .pf-note {
+				width: 130px; /* Width of labels. */
+				text-align: right;
+			}
+			.pform_custom div.pf-element .pf-group {
+				 margin-left: 130px; /* Same as width of labels. */
+			}
+			.pform_custom div.pf-buttons {
+				padding-left: 115px; /* Width of labels + margin to inputs - button spacing. */
+			}
+			/* ]]> */
+		</style>
+		<!--[if lt IE 7]>
+		<style type="text/css">
+			.pform_custom div.pf-buttons {
+				width: 225px; /* Custom form width - custom button div left padding - 20px (for IE's default padding.) */
+			}
+		</style>
+		<![endif]-->
+	<script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
+	<body>
+		<div class="ui-widget-content ui-corner-all ui-helper-clearfix">
+			<div class="wrapper">
+				<div id="header" class="ui-widget-header ui-corner-all">
+					<div id="switcher-container"><div id="switcher"><a href="http://pines.sourceforge.net/pnotify/#" class="jquery-ui-themeswitcher-trigger" style="font-family: &#39;Trebuchet MS&#39;, Verdana, sans-serif; font-size: 11px; color: rgb(102, 102, 102); background-image: url(http://jqueryui.com/themeroller/themeswitchertool/images/buttonbg.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(238, 238, 238); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-top-left-radius: 6px 6px; border-top-right-radius: 6px 6px; border-bottom-right-radius: 6px 6px; border-bottom-left-radius: 6px 6px; text-decoration: none; padding-top: 3px; padding-right: 3px; padding-bottom: 3px; padding-left: 8px; width: 139px; display: block; height: 14px; outline-width: 0px; outline-style: initial; outline-color: initial; background-position: 50% 50%; background-repeat: repeat no-repeat; "><span class="jquery-ui-themeswitcher-icon" style="float: right; width: 16px; height: 16px; background-image: url(http://jqueryui.com/themeroller/themeswitchertool/images/icon_color_arrow.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></span><span class="jquery-ui-themeswitcher-title">Switch Theme</span></a></div></div>
+					<img class="header" src="./Pines Notify_files/default_logo.png" alt="Pines Logo">
+					<h1 class="header">Pines Notify jQuery Plugin</h1>
+				</div>
+				<p style="float: right;">
+					<a href="http://sourceforge.net/projects/pines"><img src="./Pines Notify_files/sflogo.php" width="150" height="40" alt="Get Pines at SourceForge.net. Fast, secure and Free Open Source software downloads" style="border: none;"></a>
+				</p>
+				<p class="main-description">
+					Pines Notify is a JavaScript notification plugin, developed
+					by Hunter Perrin as part of
+					<a href="http://sourceforge.net/projects/pines/">Pines</a>.
+					It is designed to provide an unparalleled level of
+					flexibility, while still being very easy to implement and
+					use. It uses the jQuery UI CSS library for styling, which
+					means it is fully and easily themeable. Try out some of the
+					readymade themes using the selector in the top right corner
+					of this page. It is licensed under the
+					<a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero GPL</a>,
+					which means you are free to use, study, modify, and
+					freely redistribute it under the same license.
+				</p>
+				<p class="dev-note" style="display: none; color: red;">
+					This is the development site. It is a showcase of bleeding
+					edge features and code that may work only partially or not
+					at all. If you are looking for a stable version, please
+					visit the
+					<a href="./Pines Notify_files/Pines Notify.html">main site</a>.
+				</p>
+				<p class="stable-note" style="display: none;">
+					This is the stable site. You can download code here that's
+					tested and proven to work. However, if you like to live
+					dangerously, you can also check out the
+					<a href="http://pines.hg.sourceforge.net/hgweb/pines/pnotify/raw-file/tip/index.html">development site</a>.
+				</p>
+				<p style="text-align: center;">
+					<button type="button" onclick="window.location=&#39;https://sourceforge.net/projects/pines/files/pnotify/1.0/pnotify-1.0.1.zip/download&#39;;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text"><strong style="font-size: large;">Download Pines Notify</strong></span></button>
+				</p>
+				<h2>Features</h2>
+				<div class="ui-helper-clearfix">
+					<div class="featurelist ui-widget-content ui-corner-all">
+						<ul>
+							<li><span class="ui-icon ui-icon-bullet"></span>Timed hiding with visual effects.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Sticky (no automatic hiding) notices.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Optional hide button.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Supports dynamically updating text, title, icon, type...</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Stacks allow notice sets to stack independently.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Control stack direction and push to top or bottom.</li>
+						</ul>
+					</div>
+					<div class="featurelist ui-widget-content ui-corner-all">
+						<ul>
+							<li><span class="ui-icon ui-icon-bullet"></span>Supports HTML (including forms) in title and text.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Variable opacity.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Supports Pines icons/jQuery UI icons/any CSS based icons.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Supports custom classes for individual notice styling.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Standard and custom effects.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>Optional drop shadows.</li>
+						</ul>
+					</div>
+					<div class="featurelist ui-widget-content ui-corner-all">
+						<ul>
+							<li><span class="ui-icon ui-icon-bullet"></span>Callbacks for various events, which can cancel events.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>History viewer allows user to review previous notices.</li>
+							<li><span class="ui-icon ui-icon-bullet"></span><a href="http://validator.w3.org/check?uri=referer">XHTML 1.0 Strict compliance.</a></li>
+							<li><span class="ui-icon ui-icon-bullet"></span><a href="http://jqueryui.com/themeroller/"><img src="./Pines Notify_files/themeroller-ready.png" alt="ThemeRoller Ready"></a></li>
+						</ul>
+					</div>
+				</div>
+				<h2>Simple Demos</h2>
+				<div class="pf-group ui-widget-content ui-corner-all">
+					<input value="Hoot (To See Transparency)" onclick="$(&#39;.wrapper&#39;).toggleClass(&#39;background&#39;); if (!credit_shown) $.pnotify({
+						pnotify_title: &#39;Picture Credit&#39;,
+						pnotify_text: &#39;Owl picture courtesy of:\n&lt;a href=\&#39;http://www.flickr.com/photos/barloventomagico/\&#39; onclick=\&#39;window.open(this.href); return false;\&#39;&gt;barloventomagico&lt;/a&gt;&#39;,
+						pnotify_opacity: .8
+					}); credit_shown = true;" style="float: right;" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Regular Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Regular Notice&#39;,
+						pnotify_text: &#39;Check me out! I\&#39;m a notice.&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Sticky Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Sticky Notice&#39;,
+						pnotify_text: &#39;Check me out! I\&#39;m a sticky notice. You\&#39;ll have to close me yourself.&#39;,
+						pnotify_hide: false
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Transparent Notice" onclick="$.pnotify({
+						pnotify_title: &#39;See Through Notice&#39;,
+						pnotify_text: &#39;No one ever pays attention to me. Why should they? I\&#39;m practically invisible.&#39;,
+						pnotify_opacity: .8
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Shadow Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Shadow Notice&#39;,
+						pnotify_text: &#39;I have a shadow. It makes me pop out!\n\nNote: Shadows do not work in IE.&#39;,
+						pnotify_shadow: true
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					<input value="Pines Icon Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Pines Icon Notice&#39;,
+						pnotify_text: &#39;I have an icon that uses the Pines icon styles.&#39;,
+						pnotify_notice_icon: &#39;picon picon-mail-unread-new&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="jQuery UI Icon Notice" onclick="$.pnotify({
+						pnotify_title: &#39;jQuery UI Icon Notice&#39;,
+						pnotify_text: &#39;I have an icon that uses the jQuery UI icon styles.&#39;,
+						pnotify_notice_icon: &#39;ui-icon ui-icon-mail-closed&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="No Icon Notice" onclick="$.pnotify({
+						pnotify_title: &#39;No Icon Notice&#39;,
+						pnotify_text: &#39;I have no icon.&#39;,
+						pnotify_notice_icon: &#39;&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Simple Notice" onclick="$.pnotify(&#39;Check me out! I\&#39;m a notice.&#39;);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+
+				<div class="pf-group ui-widget-content ui-corner-all">
+					<input value="Regular Error" onclick="$.pnotify({
+						pnotify_title: &#39;Oh No!&#39;,
+						pnotify_text: &#39;Something terrible happened. It seems everything\&#39;s ok now.&#39;,
+						pnotify_type: &#39;error&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Sticky Error" onclick="$.pnotify({
+						pnotify_title: &#39;Uh Oh!&#39;,
+						pnotify_text: &#39;Something really terrible happened. You really need to read this, so I won\&#39;t close automatically.&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_hide: false
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Transparent Error" onclick="$.pnotify({
+						pnotify_title: &#39;See Through Error&#39;,
+						pnotify_text: &#39;There\&#39;s an error, but no one cares.&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_opacity: .8
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Shadow Error" onclick="$.pnotify({
+						pnotify_title: &#39;Shadow Error&#39;,
+						pnotify_text: &#39;I have a shadow. It makes me pop out!&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_shadow: true
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					<input value="Pines Icon Error" onclick="$.pnotify({
+						pnotify_title: &#39;Pines Icon Error&#39;,
+						pnotify_text: &#39;Oh no. Something\&#39;s wrong with your network, and I\&#39;m showing you visually using an appropriate icon to indicate the type of error that has occured. You know, network.&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_error_icon: &#39;picon picon-network-wireless&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="jQuery UI Icon Error" onclick="$.pnotify({
+						pnotify_title: &#39;jQuery UI Icon Error&#39;,
+						pnotify_text: &#39;Oh no. Something\&#39;s wrong with your network, and I\&#39;m showing you visually using an appropriate icon to indicate the type of error that has occured. You know, network.&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_error_icon: &#39;ui-icon ui-icon-signal-diag&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="No Icon Error" onclick="$.pnotify({
+						pnotify_title: &#39;No Icon Error&#39;,
+						pnotify_text: &#39;I have no icon.&#39;,
+						pnotify_type: &#39;error&#39;,
+						pnotify_error_icon: &#39;&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+
+				<h2>Advanced Demos</h2>
+				<div class="pf-group ui-widget-content ui-corner-all">
+					<input value="Number Notice" onclick="$.pnotify(Math.round(Math.random()*9999));" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Big Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Tall Notice&#39;,
+						pnotify_text: &#39;Check me out! I\&#39;m tall and wide, even though my text isn\&#39;t.&#39;,
+						pnotify_width: &#39;500px&#39;,
+						pnotify_min_height: &#39;400px&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="No History Notice" onclick="$.pnotify({
+						pnotify_title: &#39;No History Notice&#39;,
+						pnotify_text: &#39;I\&#39;m not part of the notice history, so if you redisplay the last message, it won\&#39;t be me.&#39;,
+						pnotify_history: false
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="No Mouse Reset Notice" onclick="$.pnotify({
+						pnotify_title: &#39;No Mouse Reset Notice&#39;,
+						pnotify_text: &#39;I don\&#39;t care if you move your mouse over me, I\&#39;ll disappear when I want.&#39;,
+						pnotify_mouse_reset: false
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Notice with Callbacks" onclick="$.pnotify({
+						pnotify_title: &#39;I\&#39;m Here&#39;,
+						pnotify_text: &#39;I have a callback for each of my events. I\&#39;ll call all my callbacks while I change states.&#39;,
+						pnotify_before_init: function(opts){
+							// Return false to cancel the notice.
+							alert(&#39;I\&#39;m called before the notice initializes. I\&#39;m passed the options used to make the notice. I can modify them. Watch me replace the word callback with tire iron!&#39;);
+							opts.pnotify_text = opts.pnotify_text.replace(/callback/g, &#39;tire iron&#39;);
+						},
+						pnotify_after_init: function(pnotify){
+							alert(&#39;I\&#39;m called after the notice initializes. I\&#39;m passed the pnotify object for the current notice: &#39;+pnotify);
+						},
+						pnotify_before_open: function(pnotify){
+							// Return false to cancel opening.
+							alert(&#39;I\&#39;m called before the notice opens. I\&#39;m passed the pnotify object for the current notice: &#39;+pnotify);
+						},
+						pnotify_after_open: function(pnotify){
+							alert(&#39;I\&#39;m called after the notice opens. I\&#39;m passed the pnotify object for the current notice: &#39;+pnotify);
+						},
+						pnotify_before_close: function(pnotify){
+							// Return false to cancel close.
+							// Use pnotify.pnotify_queue_remove() to set the removal timer again.
+							alert(&#39;I\&#39;m called before the notice closes. I\&#39;m passed the pnotify object for the current notice: &#39;+pnotify);
+						},
+						pnotify_after_close: function(pnotify){
+							// Return false to cancel removal from the DOM.
+							alert(&#39;I\&#39;m called after the notice closes. I\&#39;m passed the pnotify object for the current notice: &#39;+pnotify);
+						}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					<input value="Fast Fading Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Fast Fading Notice&#39;,
+						pnotify_text: &#39;I fade in and out really quickly.&#39;,
+						pnotify_animate_speed: &#39;fast&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="No Effect Notice" onclick="$.pnotify({
+						pnotify_title: &#39;No Effect Notice&#39;,
+						pnotify_text: &#39;I don\&#39;t even bother to animate. I\&#39;m too cool for that.&#39;,
+						pnotify_animation: &#39;none&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Rich Notice" onclick="show_rich();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Pretend Loader" onclick="fake_load();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Dynamic Notice" onclick="dyn_notice();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Notice to Error" onclick="$.pnotify({
+						pnotify_title: &#39;Notice&#39;,
+						pnotify_text: &#39;Right now I\&#39;m a notice.&#39;,
+						pnotify_before_close: function(pnotify){
+							pnotify.pnotify({
+								pnotify_title: &#39;Error&#39;,
+								pnotify_text: &#39;Uh oh. Now I\&#39;ve become an error.&#39;,
+								pnotify_type: &#39;error&#39;,
+								pnotify_before_close: function(pnotify){
+									pnotify.pnotify({
+										pnotify_title: &#39;Notice&#39;,
+										pnotify_text: &#39;Oh, nevermind. Everything\&#39;s cool now.&#39;,
+										pnotify_type: &#39;notice&#39;,
+										pnotify_before_close: null
+									});
+									pnotify.pnotify_queue_remove();
+									pnotify.effect(&#39;bounce&#39;);
+									return false;
+								}
+							});
+							pnotify.pnotify_queue_remove();
+							pnotify.effect(&#39;bounce&#39;);
+							return false;
+						}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					<input value="Permanotice" onclick="if (permanotice) {
+						permanotice.pnotify_display();
+					} else {
+						permanotice = $.pnotify({
+							pnotify_title: &#39;Now Look Here&#39;,
+							pnotify_text: &#39;There\&#39;s something you need to know, and I won\&#39;t go away until you come to grips with it.&#39;,
+							pnotify_nonblock: true,
+							pnotify_hide: false,
+							pnotify_closer: false
+						});
+					}" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Remove Permanotice" onclick="if (permanotice.pnotify_remove) permanotice.pnotify_remove();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Non-Blocking Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Non-Blocking Notice&#39;,
+						pnotify_text: &#39;I\&#39;m a special kind of notice called &quot;non-blocking&quot;. When you hover over me I\&#39;ll fade to show the elements underneath. Feel free to click any of them just like I wasn\&#39;t even here.\n\nNote: HTML links don\&#39;t trigger in Firefox or IE, due to security settings.&#39;,
+						pnotify_nonblock: true,
+						pnotify_nonblock_opacity: .2
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Form Notice" onclick="var notice = $.pnotify({
+						pnotify_text: $(&#39;#form_notice&#39;).html(),
+						pnotify_notice_icon: &#39;&#39;,
+						pnotify_width: &#39;auto&#39;,
+						pnotify_hide: false,
+						pnotify_closer: false,
+						pnotify_insert_brs: false
+					});
+					notice.find(&#39;form.pf-form&#39;).submit(function(){
+						var username = $(this).find(&#39;input[name=username]&#39;).val();
+						if (!username) {
+							alert(&#39;Please provide a username.&#39;);
+							return false;
+						}
+						notice.pnotify({
+							pnotify_title: &#39;Welcome&#39;,
+							pnotify_text: &#39;Successfully logged in as &#39;+username,
+							pnotify_notice_icon: $.pnotify.defaults.pnotify_notice_icon,
+							pnotify_width: $.pnotify.defaults.pnotify_width,
+							pnotify_hide: true,
+							pnotify_closer: true
+						});
+						return false;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<div id="form_notice" style="display: none;">
+						<form class="pf-form pform_custom" action="" method="post">
+							<div class="pf-element pf-heading">
+								<h1>Login to Continue</h1>
+								<p>Just an example.</p>
+							</div>
+							<div class="pf-element">
+								<label>
+									<span class="pf-label">Username</span>
+									<input class="pf-field ui-widget-content" type="text" name="username">
+								</label>
+							</div>
+							<div class="pf-element">
+								<label>
+									<span class="pf-label">Password</span>
+									<input class="pf-field ui-widget-content" type="password" name="password">
+								</label>
+							</div>
+							<div class="pf-element">
+								<label>
+									<span class="pf-label">Remember Me</span>
+									<span class="pf-note">Lasts for 2 weeks.</span>
+									<input class="pf-field ui-widget-content" type="checkbox" name="remember">
+								</label>
+							</div>
+							<div class="pf-element pf-buttons pf-centered">
+								<input class="pf-button ui-state-default ui-corner-all ui-priority-primary" type="submit" name="submit" value="Submit">
+								<input class="pf-button ui-state-default ui-corner-all ui-priority-secondary" type="reset" name="reset" value="Reset">
+							</div>
+						</form>
+					</div>
+					<input value="Custom Styled Notice" onclick="$.pnotify({
+						pnotify_title: &#39;Custom Styling&#39;,
+						pnotify_text: &#39;I have an additional class that\&#39;s used to give me special styling. I always wanted to be pretty.&#39;,
+						pnotify_addclass: &#39;custom&#39;,
+						pnotify_notice_icon: &#39;picon picon-32 picon-fill-color&#39;,
+						pnotify_nonblock: true,
+						pnotify_nonblock_opacity: .2
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+
+				<div class="pf-group ui-widget-content ui-corner-all">
+					<span>
+						Custom Stacks:
+						<input style="margin-left: 10px;" value="What are stacks?" onclick="show_stack_info();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					</span>
+					<br style="margin-bottom: 5px;">
+					<input value="Notice" onclick="show_stack_topleft();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Error" onclick="show_stack_topleft(true);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Top Left. Moves down, then right. Pushes to stack top.
+					<br style="margin-bottom: 5px;">
+					<input value="Notice" onclick="show_stack_bottomleft();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Error" onclick="show_stack_bottomleft(true);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Bottom Left. Moves right, then up. Pushes to stack bottom.
+					<br style="margin-bottom: 5px;">
+					<input value="Notice" onclick="show_stack_bottomright();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Error" onclick="show_stack_bottomright(true);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Bottom Right. Moves up, then left. Pushes to stack bottom.
+					<br style="margin-bottom: 5px;">
+					<input value="Notice" onclick="show_stack_custom();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Error" onclick="show_stack_custom(true);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Custom. Moves right, then down. Pushes to stack bottom.
+					<br style="margin-bottom: 5px;">
+					<input value="Notice" onclick="show_stack_custom2();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Error" onclick="show_stack_custom2(true);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Custom. Moves left, then up. Pushes to stack top.
+					<br style="margin-bottom: 5px;">
+					<input value="Hover Over Me" onmouseover="tooltip.pnotify_display();" onmousemove="tooltip.css({&#39;top&#39;: event.clientY+12, &#39;left&#39;: event.clientX+12});" onmouseout="tooltip.pnotify_remove();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					Tooltip
+				</div>
+
+				<div class="pf-group ui-widget-content ui-corner-all">
+					<input value="Lower Timer" onclick="$.pnotify.defaults.pnotify_delay ? (function(){$.pnotify.defaults.pnotify_delay -= 500; alert(&#39;Timer lowered to &#39;+($.pnotify.defaults.pnotify_delay/1000)+&#39; seconds.&#39;);}()) : (alert(&#39;Timer is already at zero.&#39;))" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Raise Timer" onclick="(function(){$.pnotify.defaults.pnotify_delay += 500; alert(&#39;Timer raised to &#39;+($.pnotify.defaults.pnotify_delay/1000)+&#39; seconds.&#39;);}())" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					Benchmarking:
+					<br>
+					<input value="10 Notices" onclick="for (i=0; i!=10; i++) {$.pnotify({
+						pnotify_title: &#39;Regular Notice&#39;,
+						pnotify_text: &#39;Check me out! I\&#39;m a notice.&#39;
+					});}" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="100 Notices (Careful)" onclick="for (i=0; i!=100; i++) {$.pnotify({
+						pnotify_title: &#39;Regular Notice&#39;,
+						pnotify_text: &#39;Check me out! I\&#39;m a notice.&#39;
+					});}" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Time 100 Notices" onclick="timed_notices(100);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Time 500 Notices" onclick="timed_notices(500);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Time 1000 Notices (Dangerous)" onclick="timed_notices(1000);" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<!-- Too Dangerous Browser Killer
+					<input value="1000 Notices (Dangerous!!)" onclick="for (i=0; i!=1000; i++) {$.pnotify({
+						pnotify_title: 'Regular Notice',
+						pnotify_text: 'Check me out! I\'m a notice.'
+					});}" type="button" />
+					-->
+					<br style="margin-bottom: 5px;">
+					<input value="Remove All Notices" onclick="$.pnotify_remove_all();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+
+				<div class="pf-group ui-widget-content ui-corner-all">
+					Effects built in to jQuery:
+					<br>
+					<input value="Show" onclick="$.pnotify({
+						pnotify_title: &#39;Show Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: &#39;show&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Fade" onclick="$.pnotify({
+						pnotify_title: &#39;Fade Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: &#39;fade&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Slide" onclick="$.pnotify({
+						pnotify_title: &#39;Slide Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: &#39;slide&#39;
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Different In and Out" onclick="$.pnotify({
+						pnotify_title: &#39;Show and Slide Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;show&#39;, effect_out: &#39;slide&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					Effects from jQuery UI:
+					<br>
+					<input value="Blind" onclick="$.pnotify({
+						pnotify_title: &#39;Blind Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;blind&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Clip" onclick="$.pnotify({
+						pnotify_title: &#39;Clip Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;clip&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Drop" onclick="$.pnotify({
+						pnotify_title: &#39;Drop Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;drop&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Explode" onclick="$.pnotify({
+						pnotify_title: &#39;Explode Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;explode&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Puff" onclick="$.pnotify({
+						pnotify_title: &#39;Puff Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;puff&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Scale" onclick="$.pnotify({
+						pnotify_title: &#39;Scale Effect&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: &#39;fade&#39;, effect_out: &#39;scale&#39;}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					Custom Functions:
+					<br>
+					<input value="One Functions" onclick="$.pnotify({
+						pnotify_title: &#39;Custom Function&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: function(status, callback, pnotify){
+							alert(&#39;Current animation: &#39;+status);
+							pnotify.toggle();
+							// Always call the callback.
+							callback();
+						}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Two Functions" onclick="$.pnotify({
+						pnotify_title: &#39;Custom Functions&#39;,
+						pnotify_text: &#39;I use a different effect.&#39;,
+						pnotify_animation: {effect_in: function(status, callback, pnotify){
+							alert(&#39;Showing...&#39;);
+							pnotify.show();
+							// Always call the callback.
+							callback();
+						}, effect_out: function(status, callback, pnotify){
+							alert(&#39;Hiding...&#39;);
+							pnotify.hide();
+							// Always call the callback.
+							callback();
+						}}
+					});" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+
+				<div class="pf-group ui-widget-content ui-corner-all">
+					This isn't really a feature of Pines Notify, but it's cool:
+					<br>
+					<input value="Consume alert()" onclick="consume_alert();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<input value="Release alert()" onclick="release_alert();" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+					<br style="margin-bottom: 5px;">
+					<input value="Display a JavaScript Alert" onclick="alert(&#39;I\&#39;m a standard alert, called with alert().&#39;)" type="button" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
+				</div>
+				<h2>Theming</h2>
+				<div>
+					<p style="margin: 0; clear: both;">
+						The Pines Notify plugin uses the jQuery UI CSS Framework to
+						style its look and feel, including colors and background
+						textures. We recommend using the ThemeRoller tool to create
+						and download custom themes that are easy to build and
+						maintain.
+					</p>
+					<br>
+					<p style="margin: 0; clear: both;">
+						If a deeper level of customization is needed, there are
+						widget-specific classes referenced within the
+						jquery.pnotify.default.css stylesheet that can be modified.
+						These classes are highlighted in bold below.
+					</p>
+				</div>
+				<h2>Sample markup with jQuery UI CSS Framework classes</h2>
+				<div>
+					<div style="margin: 0; clear: both; padding-left: 10px;">
+						&lt;div class="<strong>ui-pnotify</strong> ui-widget ui-helper-clearfix" style="width: 300px; opacity: 1; display: block; right: 15px; top: 15px;"&gt;
+						<div style="margin: 0; clear: both; padding-left: 10px;">
+							&lt;div class="<strong>ui-pnotify-shadow</strong> ui-widget-shadow"&gt;&lt;/div&gt; <small>(This div only appears when shadow is turned on.)</small>
+						</div>
+						<div style="margin: 0; clear: both; padding-left: 10px;">
+							&lt;div class="<strong>ui-pnotify-container</strong> ui-corner-all ui-state-highlight" style="min-height: 16px;"&gt;
+							<div style="margin: 0; clear: both; padding-left: 10px;">
+								&lt;div class="<strong>ui-pnotify-closer</strong>" style="cursor: pointer; display: none;"&gt;
+								<div style="margin: 0; clear: both; padding-left: 10px;">
+									&lt;span class="ui-icon ui-icon-circle-close"&gt;&lt;/span&gt;
+								</div>
+								&lt;/div&gt;<br>
+								&lt;div class="<strong>ui-pnotify-icon</strong>"&gt;
+								<div style="margin: 0; clear: both; padding-left: 10px;">
+									&lt;span class="ui-icon ui-icon-info"&gt;&lt;/span&gt;
+								</div>
+								&lt;/div&gt;<br>
+								&lt;div class="<strong>ui-pnotify-title</strong>"&gt;Pines Notify&lt;/div&gt;<br>
+								&lt;div class="<strong>ui-pnotify-text</strong>"&gt;Welcome to Pines Notify.&lt;/div&gt;
+							</div>
+							&lt;/div&gt;
+						</div>
+						&lt;/div&gt;
+					</div>
+					<p>
+						<span style="padding: 8px; background-image: none; font-weight: bold;" class="ui-state-default ui-priority-secondary">Note: This is a sample of markup generated by Pines Notify, not markup you should use to create a notice. You don't need markup for that.</span>
+					</p>
+				</div>
+				<h2>Installation</h2>
+				<p>Installation is simple. Include jQuery 1.4 and jQuery UI (only the CSS is required). Then include the following files:</p>
+				<div class="ui-helper-clearfix">
+					<div class="featurelist">
+						<ul>
+							<li><span class="ui-icon ui-icon-bullet"></span>jquery.pnotify.js or jquery.pnotify.min.js (Minified)</li>
+							<li><span class="ui-icon ui-icon-bullet"></span>jquery.pnotify.default.css</li>
+						</ul>
+					</div>
+				</div>
+				<p>If you want to use jQuery UI effect animations, you also need to include the jQuery UI JavaScript.</p>
+				<p style="text-align: center;">
+					<button type="button" onclick="window.location=&#39;https://sourceforge.net/projects/pines/files/pnotify/1.0/pnotify-1.0.1.zip/download&#39;;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text"><strong style="font-size: large;">Download Pines Notify</strong></span></button>
+				</p>
+			</div>
+		</div>
+		<!-- Would love to keep this visible, but it causes the page to not validate.
+		<div xmlns:cc="http://creativecommons.org/ns#" about="http://www.flickr.com/photos/barloventomagico/2435316564/"><a rel="cc:attributionURL" href="http://www.flickr.com/photos/barloventomagico/">http://www.flickr.com/photos/barloventomagico/</a> / <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a></div>
+		-->
+	
+<div class="ui-pnotify-history-container ui-state-default ui-corner-bottom" style="top: -76px; "><div class="ui-pnotify-history-header">Redisplay</div><button class="ui-pnotify-history-all ui-state-default ui-corner-all">All</button><button class="ui-pnotify-history-last ui-state-default ui-corner-all">Last</button><span class="ui-pnotify-history-pulldown ui-icon ui-icon-grip-dotted-horizontal"></span></div><div class="ui-pnotify " style="display: none; width: 300px; "><div class="ui-widget ui-widget-content ui-corner-all ui-pnotify-container ui-state-highlight" style="min-height: 16px; "><div class="ui-pnotify-closer" style="cursor: pointer; display: none; "><span class="ui-icon ui-icon-circle-close"></span></div><div class="ui-pnotify-icon"><span class="ui-icon ui-icon-comment"></span></div><div class="ui-pnotify-title">Tooltip</div><div class="ui-pnotify-text">I'm not in a stack. I'm positioned like a tooltip with JavaScript.</div></div></div><div style="position: absolute; float: left; font-family: &#39;Trebuchet MS&#39;, Verdana, sans-serif; font-size: 12px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); padding-top: 8px; padding-right: 3px; padding-bottom: 3px; padding-left: 3px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-left-radius: 6px 6px; border-bottom-right-radius: 6px 6px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; z-index: 999999; width: 144px; display: none; background-position: initial initial; background-repeat: initial initial; ">	<ul style="list-style-type: none; list-style-position: initial; list-style-image: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; overflow-x: auto; overflow-y: auto; height: 200px; ">		<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Trebuchet+MS,+Tahoma,+Verdana,+Arial,+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_ui_light.png" alt="UI Lightness" title="UI Lightness" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">UI lightness</span>		</a></li>				<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=333333&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=25&borderColorHeader=333333&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=000000&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=25&borderColorContent=666666&fcContent=ffffff&iconColorContent=cccccc&bgColorDefault=555555&bgTextureDefault=02_glass.png&bgImgOpacityDefault=20&borderColorDefault=666666&fcDefault=eeeeee&iconColorDefault=cccccc&bgColorHover=0078a3&bgTextureHover=02_glass.png&bgImgOpacityHover=40&borderColorHover=59b4d4&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=f58400&bgTextureActive=05_inset_soft.png&bgImgOpacityActive=30&borderColorActive=ffaf0f&fcActive=ffffff&iconColorActive=222222&bgColorHighlight=eeeeee&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=80&borderColorHighlight=cccccc&fcHighlight=2e7db2&iconColorHighlight=4b8e0b&bgColorError=ffc73d&bgTextureError=02_glass.png&bgImgOpacityError=40&borderColorError=ffb73d&fcError=111111&iconColorError=a83300&bgColorOverlay=5c5c5c&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=50&opacityOverlay=80&bgColorShadow=cccccc&bgTextureShadow=01_flat.png&bgImgOpacityShadow=30&opacityShadow=60&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_ui_dark.png" alt="UI Darkness" title="UI Darkness" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">UI darkness</span>		</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Verdana,Arial,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_smoothness.png" alt="Smoothness" title="Smoothness" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Smoothness</span>		</a></li>							<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Verdana%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=5px&bgColorHeader=2191c0&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=75&borderColorHeader=4297d7&fcHeader=eaf5f7&iconColorHeader=d8e7f3&bgColorContent=fcfdfd&bgTextureContent=06_inset_hard.png&bgImgOpacityContent=100&borderColorContent=a6c9e2&fcContent=222222&iconColorContent=0078ae&bgColorDefault=0078ae&bgTextureDefault=02_glass.png&bgImgOpacityDefault=45&borderColorDefault=77d5f7&fcDefault=ffffff&iconColorDefault=e0fdff&bgColorHover=79c9ec&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=448dae&fcHover=026890&iconColorHover=056b93&bgColorActive=6eac2c&bgTextureActive=12_gloss_wave.png&bgImgOpacityActive=50&borderColorActive=acdd4a&fcActive=ffffff&iconColorActive=f5e175&bgColorHighlight=f8da4e&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcd113&fcHighlight=915608&iconColorHighlight=f7a50d&bgColorError=e14f1c&bgTextureError=12_gloss_wave.png&bgImgOpacityError=45&borderColorError=cd0a0a&fcError=ffffff&iconColorError=fcd113&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=75&opacityOverlay=30&bgColorShadow=999999&bgTextureShadow=01_flat.png&bgImgOpacityShadow=55&opacityShadow=45&thicknessShadow=0px&offsetTopShadow=5px&offsetLeftShadow=5px&cornerRadiusShadow=5px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_start_menu.png" alt="Start" title="Start" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Start</span>		</a></li>				<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Lucida+Grande,+Lucida+Sans,+Arial,+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=5px&bgColorHeader=5c9ccc&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=55&borderColorHeader=4297d7&fcHeader=ffffff&iconColorHeader=d8e7f3&bgColorContent=fcfdfd&bgTextureContent=06_inset_hard.png&bgImgOpacityContent=100&borderColorContent=a6c9e2&fcContent=222222&iconColorContent=469bdd&bgColorDefault=dfeffc&bgTextureDefault=02_glass.png&bgImgOpacityDefault=85&borderColorDefault=c5dbec&fcDefault=2e6e9e&iconColorDefault=6da8d5&bgColorHover=d0e5f5&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=79b7e7&fcHover=1d5987&iconColorHover=217bc0&bgColorActive=f5f8f9&bgTextureActive=06_inset_hard.png&bgImgOpacityActive=100&borderColorActive=79b7e7&fcActive=e17009&iconColorActive=f9bd01&bgColorHighlight=fbec88&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=fad42e&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_windoze.png" alt="Redmond" title="Redmond" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Redmond</span>		</a></li>						<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=8px&bgColorHeader=817865&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=45&borderColorHeader=494437&fcHeader=ffffff&iconColorHeader=fadc7a&bgColorContent=feeebd&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=8e846b&fcContent=383838&iconColorContent=d19405&bgColorDefault=fece2f&bgTextureDefault=12_gloss_wave.png&bgImgOpacityDefault=60&borderColorDefault=d19405&fcDefault=4c3000&iconColorDefault=3d3d3d&bgColorHover=ffdd57&bgTextureHover=12_gloss_wave.png&bgImgOpacityHover=70&borderColorHover=a45b13&fcHover=381f00&iconColorHover=bd7b00&bgColorActive=ffffff&bgTextureActive=05_inset_soft.png&bgImgOpacityActive=30&borderColorActive=655e4e&fcActive=0074c7&iconColorActive=eb990f&bgColorHighlight=fff9e5&bgTextureHighlight=12_gloss_wave.png&bgImgOpacityHighlight=90&borderColorHighlight=eeb420&fcHighlight=1f1f1f&iconColorHighlight=ed9f26&bgColorError=d34d17&bgTextureError=07_diagonals_medium.png&bgImgOpacityError=20&borderColorError=ffb73d&fcError=ffffff&iconColorError=ffe180&bgColorOverlay=5c5c5c&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=50&opacityOverlay=80&bgColorShadow=cccccc&bgTextureShadow=01_flat.png&bgImgOpacityShadow=30&opacityShadow=60&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_sunny.png" alt="Sunny" title="Sunny" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Sunny</span>		</a></li>						<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Trebuchet+MS%2C+Helvetica%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=dddddd&bgTextureHeader=02_glass.png&bgImgOpacityHeader=35&borderColorHeader=bbbbbb&fcHeader=444444&iconColorHeader=999999&bgColorContent=c9c9c9&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=50&borderColorContent=aaaaaa&fcContent=333333&iconColorContent=999999&bgColorDefault=eeeeee&bgTextureDefault=02_glass.png&bgImgOpacityDefault=60&borderColorDefault=cccccc&fcDefault=3383bb&iconColorDefault=70b2e1&bgColorHover=f8f8f8&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=bbbbbb&fcHover=599fcf&iconColorHover=3383bb&bgColorActive=999999&bgTextureActive=06_inset_hard.png&bgImgOpacityActive=75&borderColorActive=999999&fcActive=ffffff&iconColorActive=454545&bgColorHighlight=eeeeee&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=ffffff&fcHighlight=444444&iconColorHighlight=3383bb&bgColorError=c0402a&bgTextureError=01_flat.png&bgImgOpacityError=55&borderColorError=c0402a&fcError=ffffff&iconColorError=fbc856&bgColorOverlay=eeeeee&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=60&thicknessShadow=4px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0pxdow%3D0px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_overcast.png" alt="Overcast" title="Overcast" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Overcast</span>				</a></li>						<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Lucida+Grande%2C+Lucida+Sans%2C+Arial%2C+sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=10px&bgColorHeader=3a8104&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=33&borderColorHeader=3f7506&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=285c00&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=10&borderColorContent=72b42d&fcContent=ffffff&iconColorContent=72b42d&bgColorDefault=4ca20b&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=60&borderColorDefault=45930b&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=4eb305&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=50&borderColorHover=8bd83b&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=285c00&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=30&borderColorActive=72b42d&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fbf5d0&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=f9dd34&fcHighlight=363636&iconColorHighlight=4eb305&bgColorError=ffdc2e&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=95&borderColorError=fad000&fcError=2b2b2b&iconColorError=cd0a0a&bgColorOverlay=444444&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=15&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=07_diagonals_small.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=0px&offsetTopShadow=4px&offsetLeftShadow=4px&cornerRadiusShadow=4px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_le_frog.png" alt="Le Frog" title="Le Frog" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Le Frog</span>		</a></li>								<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Helvetica%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=2px&bgColorHeader=dddddd&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=50&borderColorHeader=dddddd&fcHeader=444444&iconColorHeader=0073ea&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=dddddd&fcContent=444444&iconColorContent=ff0084&bgColorDefault=f6f6f6&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=100&borderColorDefault=dddddd&fcDefault=0073ea&iconColorDefault=666666&bgColorHover=0073ea&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=25&borderColorHover=0073ea&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=dddddd&fcActive=ff0084&iconColorActive=454545&bgColorHighlight=ffffff&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=cccccc&fcHighlight=444444&iconColorHighlight=0073ea&bgColorError=ffffff&bgTextureError=01_flat.png&bgImgOpacityError=55&borderColorError=ff0084&fcError=222222&iconColorError=ff0084&bgColorOverlay=eeeeee&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=60&thicknessShadow=4px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_flick.png" alt="Flick" title="Flick" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Flick</span>				</a></li>				<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Trebuchet+MS%2C+Tahoma%2C+Verdana%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=ffffff&bgTextureHeader=23_fine_grain.png&bgImgOpacityHeader=15&borderColorHeader=d4d1bf&fcHeader=453821&iconColorHeader=b83400&bgColorContent=eceadf&bgTextureContent=23_fine_grain.png&bgImgOpacityContent=10&borderColorContent=d9d6c4&fcContent=1f1f1f&iconColorContent=222222&bgColorDefault=f8f7f6&bgTextureDefault=23_fine_grain.png&bgImgOpacityDefault=10&borderColorDefault=cbc7bd&fcDefault=654b24&iconColorDefault=b83400&bgColorHover=654b24&bgTextureHover=23_fine_grain.png&bgImgOpacityHover=65&borderColorHover=654b24&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=eceadf&bgTextureActive=23_fine_grain.png&bgImgOpacityActive=15&borderColorActive=d9d6c4&fcActive=140f06&iconColorActive=8c291d&bgColorHighlight=f7f3de&bgTextureHighlight=23_fine_grain.png&bgImgOpacityHighlight=15&borderColorHighlight=b2a266&fcHighlight=3a3427&iconColorHighlight=3572ac&bgColorError=b83400&bgTextureError=23_fine_grain.png&bgImgOpacityError=68&borderColorError=681818&fcError=ffffff&iconColorError=fbdb93&bgColorOverlay=6e4f1c&bgTextureOverlay=16_diagonal_maze.png&bgImgOpacityOverlay=20&opacityOverlay=60&bgColorShadow=000000&bgTextureShadow=16_diagonal_maze.png&bgImgOpacityShadow=40&opacityShadow=60&thicknessShadow=5px&offsetTopShadow=0&offsetLeftShadow=-10px&cornerRadiusShadow=18px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_pepper_grinder.png" alt="Pepper Grinder" title="Pepper Grinder" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Pepper Grinder</span>				</a></li>								<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Lucida+Grande%2C+Lucida+Sans%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=30273a&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=25&borderColorHeader=231d2b&fcHeader=ffffff&iconColorHeader=a8a3ae&bgColorContent=3d3644&bgTextureContent=12_gloss_wave.png&bgImgOpacityContent=30&borderColorContent=7e7783&fcContent=ffffff&iconColorContent=ffffff&bgColorDefault=dcd9de&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=100&borderColorDefault=dcd9de&fcDefault=665874&iconColorDefault=8d78a5&bgColorHover=eae6ea&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=100&borderColorHover=d1c5d8&fcHover=734d99&iconColorHover=734d99&bgColorActive=5f5964&bgTextureActive=03_highlight_soft.png&bgImgOpacityActive=45&borderColorActive=7e7783&fcActive=ffffff&iconColorActive=454545&bgColorHighlight=fafafa&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=ffdb1f&fcHighlight=333333&iconColorHighlight=8d78a5&bgColorError=994d53&bgTextureError=01_flat.png&bgImgOpacityError=55&borderColorError=994d53&fcError=ffffff&iconColorError=ebccce&bgColorOverlay=eeeeee&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=60&thicknessShadow=4px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_eggplant.png" alt="Eggplant" title="Eggplant" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Eggplant</span>				</a></li>								<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Verdana%2C+Arial%2C+sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=444444&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=44&borderColorHeader=333333&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=000000&bgTextureContent=14_loop.png&bgImgOpacityContent=25&borderColorContent=555555&fcContent=ffffff&iconColorContent=cccccc&bgColorDefault=222222&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=35&borderColorDefault=444444&fcDefault=eeeeee&iconColorDefault=cccccc&bgColorHover=003147&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=33&borderColorHover=0b93d5&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=0972a5&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=20&borderColorActive=26b3f7&fcActive=ffffff&iconColorActive=222222&bgColorHighlight=eeeeee&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=80&borderColorHighlight=cccccc&fcHighlight=2e7db2&iconColorHighlight=4b8e0b&bgColorError=ffc73d&bgTextureError=02_glass.png&bgImgOpacityError=40&borderColorError=ffb73d&fcError=111111&iconColorError=a83300&bgColorOverlay=5c5c5c&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=50&opacityOverlay=80&bgColorShadow=cccccc&bgTextureShadow=01_flat.png&bgImgOpacityShadow=30&opacityShadow=60&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_dark_hive.png" alt="Dark Hive" title="Dark Hive" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Dark Hive</span>		</a></li>										<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Lucida+Grande%2C+Lucida+Sans%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=deedf7&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=aed0ea&fcHeader=222222&iconColorHeader=72a7cf&bgColorContent=f2f5f7&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=362b36&iconColorContent=72a7cf&bgColorDefault=d7ebf9&bgTextureDefault=02_glass.png&bgImgOpacityDefault=80&borderColorDefault=aed0ea&fcDefault=2779aa&iconColorDefault=3d80b3&bgColorHover=e4f1fb&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=74b2e2&fcHover=0070a3&iconColorHover=2694e8&bgColorActive=3baae3&bgTextureActive=02_glass.png&bgImgOpacityActive=50&borderColorActive=2694e8&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=ffef8f&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=25&borderColorHighlight=f9dd34&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=cd0a0a&bgTextureError=01_flat.png&bgImgOpacityError=15&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffffff&bgColorOverlay=eeeeee&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=90&opacityOverlay=80&bgColorShadow=000000&bgTextureShadow=04_highlight_hard.png&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_cupertino.png" alt="Cupertino" title="Cupertino" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Cupertino</span>				</a></li>				<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=segoe+ui%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=ece8da&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=100&borderColorHeader=d4ccb0&fcHeader=433f38&iconColorHeader=847e71&bgColorContent=f5f3e5&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=dfd9c3&fcContent=312e25&iconColorContent=808080&bgColorDefault=459e00&bgTextureDefault=04_highlight_hard.png&bgImgOpacityDefault=15&borderColorDefault=327E04&fcDefault=ffffff&iconColorDefault=eeeeee&bgColorHover=67b021&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=25&borderColorHover=327E04&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=fafaf4&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=100&borderColorActive=d4ccb0&fcActive=459e00&iconColorActive=8DC262&bgColorHighlight=fcf0ba&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=e8e1b5&fcHighlight=363636&iconColorHighlight=8DC262&bgColorError=ffedad&bgTextureError=03_highlight_soft.png&bgImgOpacityError=95&borderColorError=e3a345&fcError=cd5c0a&iconColorError=cd0a0a&bgColorOverlay=2b2922&bgTextureOverlay=05_inset_soft.png&bgImgOpacityOverlay=15&opacityOverlay=90&bgColorShadow=cccccc&bgTextureShadow=04_highlight_hard.png&bgImgOpacityShadow=95&opacityShadow=20&thicknessShadow=12px&offsetTopShadow=-12px&offsetLeftShadow=-12px&cornerRadiusShadow=10px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_south_street.png" alt="South St" title="South St" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">South Street</span>				</a></li>		<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Arial,sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=cc0000&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=15&borderColorHeader=e3a1a1&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=eeeeee&fcContent=333333&iconColorContent=cc0000&bgColorDefault=eeeeee&bgTextureDefault=04_highlight_hard.png&bgImgOpacityDefault=100&borderColorDefault=d8dcdf&fcDefault=004276&iconColorDefault=cc0000&bgColorHover=f6f6f6&bgTextureHover=04_highlight_hard.png&bgImgOpacityHover=100&borderColorHover=cdd5da&fcHover=111111&iconColorHover=cc0000&bgColorActive=ffffff&bgTextureActive=01_flat.png&bgImgOpacityActive=65&borderColorActive=eeeeee&fcActive=cc0000&iconColorActive=cc0000&bgColorHighlight=fbf8ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcd3a1&fcHighlight=444444&iconColorHighlight=004276&bgColorError=f3d8d8&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=75&borderColorError=cc0000&fcError=2e2e2e&iconColorError=cc0000&bgColorOverlay=a6a6a6&bgTextureOverlay=09_dots_small.png&bgImgOpacityOverlay=65&opacityOverlay=40&bgColorShadow=333333&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=10&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_blitzer.png" alt="Blitzer" title="Blitzer" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Blitzer</span>		</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?tr=ffDefault=Helvetica,Arial,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=cb842e&bgTextureHeader=02_glass.png&bgImgOpacityHeader=25&borderColorHeader=d49768&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=f4f0ec&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=100&borderColorContent=e0cfc2&fcContent=1e1b1d&iconColorContent=c47a23&bgColorDefault=ede4d4&bgTextureDefault=02_glass.png&bgImgOpacityDefault=70&borderColorDefault=cdc3b7&fcDefault=3f3731&iconColorDefault=f08000&bgColorHover=f5f0e5&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=f5ad66&fcHover=a46313&iconColorHover=f08000&bgColorActive=f4f0ec&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=100&borderColorActive=e0cfc2&fcActive=b85700&iconColorActive=f35f07&bgColorHighlight=f5f5b5&bgTextureHighlight=04_highlight_hard.png&bgImgOpacityHighlight=75&borderColorHighlight=d9bb73&fcHighlight=060200&iconColorHighlight=cb672b&bgColorError=fee4bd&bgTextureError=04_highlight_hard.png&bgImgOpacityError=65&borderColorError=f8893f&fcError=592003&iconColorError=ff7519&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=75&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=75&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_humanity.png" alt="Humanity" title="Humanity" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Humanity</span>		</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Gill+Sans,Arial,sans-serif&fwDefault=bold&fsDefault=1.2em&cornerRadius=4px&bgColorHeader=35414f&bgTextureHeader=09_dots_small.png&bgImgOpacityHeader=35&borderColorHeader=2c4359&fcHeader=e1e463&iconColorHeader=e1e463&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=2c4359&iconColorContent=c02669&bgColorDefault=93c3cd&bgTextureDefault=07_diagonals_small.png&bgImgOpacityDefault=50&borderColorDefault=93c3cd&fcDefault=333333&iconColorDefault=ffffff&bgColorHover=ccd232&bgTextureHover=07_diagonals_small.png&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=db4865&bgTextureActive=07_diagonals_small.png&bgImgOpacityActive=40&borderColorActive=ff6b7f&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=ffff38&bgTextureHighlight=10_dots_medium.png&bgImgOpacityHighlight=80&borderColorHighlight=b4d100&fcHighlight=363636&iconColorHighlight=88a206&bgColorError=ff3853&bgTextureError=07_diagonals_small.png&bgImgOpacityError=50&borderColorError=ff6b7f&fcError=ffffff&iconColorError=ffeb33&bgColorOverlay=f7f7ba&bgTextureOverlay=11_white_lines.png&bgImgOpacityOverlay=85&opacityOverlay=80&bgColorShadow=ba9217&bgTextureShadow=01_flat.png&bgImgOpacityShadow=75&opacityShadow=20&thicknessShadow=10px&offsetTopShadow=8px&offsetLeftShadow=8px&cornerRadiusShadow=5px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">		<img src="./Pines Notify_files/theme_90_hot_sneaks.png" alt="Hot Sneaks" title="Hot Sneaks" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Hot sneaks</span>		</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=segoe+ui,+Arial,+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=3px&bgColorHeader=f9f9f9&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=100&borderColorHeader=cccccc&fcHeader=e69700&iconColorHeader=5fa5e3&bgColorContent=eeeeee&bgTextureContent=06_inset_hard.png&bgImgOpacityContent=100&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=0a82eb&bgColorDefault=1484e6&bgTextureDefault=08_diagonals_thick.png&bgImgOpacityDefault=22&borderColorDefault=ffffff&fcDefault=ffffff&iconColorDefault=fcdd4a&bgColorHover=2293f7&bgTextureHover=08_diagonals_thick.png&bgImgOpacityHover=26&borderColorHover=2293f7&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=e69700&bgTextureActive=08_diagonals_thick.png&bgImgOpacityActive=20&borderColorActive=e69700&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=c5ddfc&bgTextureHighlight=07_diagonals_small.png&bgImgOpacityHighlight=25&borderColorHighlight=ffffff&fcHighlight=333333&iconColorHighlight=0b54d5&bgColorError=e69700&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=20&borderColorError=e69700&fcError=ffffff&iconColorError=ffffff&bgColorOverlay=e6b900&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=e69700&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=20&thicknessShadow=0px&offsetTopShadow=6px&offsetLeftShadow=6px&cornerRadiusShadow=3px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_excite_bike.png" alt="Excite Bike" title="Excite Bike" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Excite Bike</span>			</a></li>		<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?tr&ffDefault=Helvetica,+Arial,+sans-serif&fwDefault=normal&fsDefault=1.1&fsDefaultUnit=em&cornerRadius=5&cornerRadiusUnit=px&bgColorHeader=888888&bgTextureHeader=04_highlight_hard.png&bgImgOpacityHeader=15&borderColorHeader=404040&fcHeader=ffffff&iconColorHeader=cccccc&bgColorContent=121212&bgTextureContent=12_gloss_wave.png&bgImgOpacityContent=16&borderColorContent=404040&fcContent=eeeeee&iconColorContent=bbbbbb&bgColorDefault=adadad&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=35&borderColorDefault=cccccc&fcDefault=333333&iconColorDefault=666666&bgColorHover=dddddd&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=60&borderColorHover=dddddd&fcHover=000000&iconColorHover=c98000&bgColorActive=121212&bgTextureActive=05_inset_soft.png&bgImgOpacityActive=15&borderColorActive=000000&fcActive=ffffff&iconColorActive=f29a00&bgColorHighlight=555555&bgTextureHighlight=04_highlight_hard.png&bgImgOpacityHighlight=55&borderColorHighlight=404040&fcHighlight=cccccc&iconColorHighlight=aaaaaa&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_black_matte.png" alt="Vader" title="Vader" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Vader</span>			</a></li>				<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Arial,+sans-serif&fwDefault=bold&fsDefault=1.3em&cornerRadius=4px&bgColorHeader=0b3e6f&bgTextureHeader=08_diagonals_thick.png&bgImgOpacityHeader=15&borderColorHeader=0b3e6f&fcHeader=f6f6f6&iconColorHeader=98d2fb&bgColorContent=111111&bgTextureContent=12_gloss_wave.png&bgImgOpacityContent=20&borderColorContent=000000&fcContent=d9d9d9&iconColorContent=9ccdfc&bgColorDefault=333333&bgTextureDefault=09_dots_small.png&bgImgOpacityDefault=20&borderColorDefault=333333&fcDefault=ffffff&iconColorDefault=9ccdfc&bgColorHover=00498f&bgTextureHover=09_dots_small.png&bgImgOpacityHover=40&borderColorHover=222222&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=292929&bgTextureActive=01_flat.png&bgImgOpacityActive=40&borderColorActive=096ac8&fcActive=75abff&iconColorActive=00498f&bgColorHighlight=0b58a2&bgTextureHighlight=10_dots_medium.png&bgImgOpacityHighlight=30&borderColorHighlight=052f57&fcHighlight=ffffff&iconColorHighlight=ffffff&bgColorError=a32d00&bgTextureError=09_dots_small.png&bgImgOpacityError=30&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffffff&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_dot_luv.png" alt="Dot Luv" title="Dot Luv" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Dot Luv</span>			</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Segoe+UI%2C+Helvetica%2C+Arial%2C+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=453326&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=25&borderColorHeader=695649&fcHeader=e3ddc9&iconColorHeader=e3ddc9&bgColorContent=201913&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=10&borderColorContent=9c947c&fcContent=ffffff&iconColorContent=222222&bgColorDefault=1c160d&bgTextureDefault=12_gloss_wave.png&bgImgOpacityDefault=20&borderColorDefault=695444&fcDefault=9bcc60&iconColorDefault=9bcc60&bgColorHover=44372c&bgTextureHover=12_gloss_wave.png&bgImgOpacityHover=30&borderColorHover=9c947c&fcHover=baec7e&iconColorHover=add978&bgColorActive=201913&bgTextureActive=03_highlight_soft.png&bgImgOpacityActive=20&borderColorActive=9c947c&fcActive=e3ddc9&iconColorActive=e3ddc9&bgColorHighlight=619226&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=20&borderColorHighlight=add978&fcHighlight=ffffff&iconColorHighlight=ffffff&bgColorError=5f391b&bgTextureError=02_glass.png&bgImgOpacityError=15&borderColorError=5f391b&fcError=ffffff&iconColorError=f1fd86&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_mint_choco.png" alt="Mint Choc" title="Mint Choc" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Mint Choc</span>		</a></li>		<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Verdana,+Arial,+sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=333333&bgTextureHeader=08_diagonals_thick.png&bgImgOpacityHeader=8&borderColorHeader=a3a3a3&fcHeader=eeeeee&iconColorHeader=bbbbbb&bgColorContent=f9f9f9&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=cccccc&fcContent=222222&iconColorContent=222222&bgColorDefault=111111&bgTextureDefault=02_glass.png&bgImgOpacityDefault=40&borderColorDefault=777777&fcDefault=e3e3e3&iconColorDefault=ededed&bgColorHover=1c1c1c&bgTextureHover=02_glass.png&bgImgOpacityHover=55&borderColorHover=000000&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=ffffff&bgTextureActive=01_flat.png&bgImgOpacityActive=65&borderColorActive=cccccc&fcActive=222222&iconColorActive=222222&bgColorHighlight=ffeb80&bgTextureHighlight=06_inset_hard.png&bgImgOpacityHighlight=55&borderColorHighlight=ffde2e&fcHighlight=363636&iconColorHighlight=4ca300&bgColorError=cd0a0a&bgTextureError=06_inset_hard.png&bgImgOpacityError=45&borderColorError=9e0505&fcError=ffffff&iconColorError=ffcf29&bgColorOverlay=aaaaaa&bgTextureOverlay=04_highlight_hard.png&bgImgOpacityOverlay=40&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=03_highlight_soft.png&bgImgOpacityShadow=50&opacityShadow=20&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_black_tie.png" alt="Black Tie" title="Black Tie" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Black Tie</span>		</a></li>		<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Segoe+UI,+Helvetica,+Arial,+sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=9fda58&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=85&borderColorHeader=000000&fcHeader=222222&iconColorHeader=1f1f1f&bgColorContent=000000&bgTextureContent=12_gloss_wave.png&bgImgOpacityContent=55&borderColorContent=4a4a4a&fcContent=ffffff&iconColorContent=9fda58&bgColorDefault=0a0a0a&bgTextureDefault=02_glass.png&bgImgOpacityDefault=40&borderColorDefault=1b1613&fcDefault=b8ec79&iconColorDefault=b8ec79&bgColorHover=000000&bgTextureHover=02_glass.png&bgImgOpacityHover=60&borderColorHover=000000&fcHover=96f226&iconColorHover=b8ec79&bgColorActive=4c4c4c&bgTextureActive=01_flat.png&bgImgOpacityActive=0&borderColorActive=696969&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=f1fbe5&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=8cce3b&fcHighlight=030303&iconColorHighlight=000000&bgColorError=f6ecd5&bgTextureError=12_gloss_wave.png&bgImgOpacityError=95&borderColorError=f1ac88&fcError=74736d&iconColorError=cd0a0a&bgColorOverlay=262626&bgTextureOverlay=07_diagonals_small.png&bgImgOpacityOverlay=50&opacityOverlay=30&bgColorShadow=303030&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=50&thicknessShadow=6px&offsetTopShadow=-6px&offsetLeftShadow=-6px&cornerRadiusShadow=12px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_trontastic.png" alt="Trontastic" title="Trontastic" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Trontastic</span>			</a></li>			<li style="width: 120px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); border-left-color: rgb(17, 17, 17); clear: left; float: left; "><a href="http://jqueryui.com/themeroller/css/parseTheme.css.php?ffDefault=Georgia%2C+Verdana%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.2em&cornerRadius=5px&bgColorHeader=261803&bgTextureHeader=13_diamond.png&bgImgOpacityHeader=8&borderColorHeader=baaa5a&fcHeader=eacd86&iconColorHeader=e9cd86&bgColorContent=443113&bgTextureContent=13_diamond.png&bgImgOpacityContent=8&borderColorContent=efec9f&fcContent=efec9f&iconColorContent=efec9f&bgColorDefault=4f4221&bgTextureDefault=13_diamond.png&bgImgOpacityDefault=10&borderColorDefault=362917&fcDefault=f8eec9&iconColorDefault=e8e2b5&bgColorHover=675423&bgTextureHover=13_diamond.png&bgImgOpacityHover=25&borderColorHover=362917&fcHover=f8eec9&iconColorHover=f2ec64&bgColorActive=443113&bgTextureActive=13_diamond.png&bgImgOpacityActive=8&borderColorActive=efec9f&fcActive=f9f2bd&iconColorActive=f9f2bd&bgColorHighlight=d5ac5d&bgTextureHighlight=13_diamond.png&bgImgOpacityHighlight=25&borderColorHighlight=362917&fcHighlight=060200&iconColorHighlight=070603&bgColorError=fee4bd&bgTextureError=04_highlight_hard.png&bgImgOpacityError=65&borderColorError=c26629&fcError=803f1e&iconColorError=ff7519&bgColorOverlay=372806&bgTextureOverlay=13_diamond.png&bgImgOpacityOverlay=20&opacityOverlay=80&bgColorShadow=ddd4b0&bgTextureShadow=01_flat.png&bgImgOpacityShadow=75&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=12px" style="color: rgb(170, 170, 170); text-decoration: none; float: left; width: 100%; outline-width: 0px; outline-style: initial; outline-color: initial; ">			<img src="./Pines Notify_files/theme_90_swanky_purse.png" alt="Swanky Purse" title="Swanky Purse" style="float: left; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 2px; ">			<span class="themeName" style="float: left; margin-top: 3px; margin-right: 0px; margin-bottom: 3px; margin-left: 0px; ">Swanky Purse</span>			</a></li>	</ul></div></body></html>

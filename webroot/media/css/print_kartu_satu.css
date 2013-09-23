@@ -1,0 +1,29 @@
+body {
+	font-family:arial, verdana;
+	background:url(../images/kartu-satu.png) no-repeat;
+	font-size:7pt;
+}
+.muka {
+
+}
+#depan {
+	width:80.7mm;
+	max-width:80.7mm;
+	overflow:hidden;
+	float:left;
+	height:51.5mm;
+	max-height:51.5mm;
+}
+#belakang {
+	width:85mm;
+	max-width:85mm;
+	overflow:hidden;
+	float:left;
+	height:5.5cm;
+	max-height:5.5cm;
+}
+#header {
+	letter-spacing:0;
+}
+
+table tr td {line-height:3mm}

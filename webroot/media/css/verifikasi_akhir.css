@@ -1,0 +1,46 @@
+body {
+	font-family:arial, verdana;
+	width:100%;
+	/*border:solid 1px #000;*/
+	font-size:9pt;
+	overflow:hidden;
+}
+
+.table-body {
+	margin:0 0 0 0;
+}
+.tanda-tangan {
+	width:100%;
+	margin:10pt 0 0 0;
+}
+.tblListData {
+	font-size:8pt;
+	border:solid 1px #cccccc;
+	border-collapse: collapse;
+	background:#FFFFFF;
+}
+.tblListData thead th {
+	background: #dbdcdd;
+	text-align:center;
+	vertical-align:middle;
+	border:solid 1px #000000;	
+	line-height:11pt;
+}
+.tblListData tbody td {
+	border:solid 1px #000000;
+	padding:0 3px 0 3px;
+	line-height:11pt;
+}
+h1 {
+	font-size:16pt;
+	text-align:center;
+}
+.halaman {
+	/*height:210mm;*/
+	overflow:hidden;
+	padding: 5pt;
+}
+.tblBiasa td { line-height:11pt;}
+p {
+	text-align:justify;
+}

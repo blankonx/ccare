@@ -1,0 +1,74 @@
+body {
+	font-family:arial, verdana;
+	width:270mm;
+}
+#header {
+	width:100%;
+	height:2cm;
+	max-height:2cm;
+	overflow:hidden;
+	border:solid 1px #000000;
+	font-family:verdana;
+	margin-bottom:1mm;
+	letter-spacing:1mm;
+}
+#header div {
+	float:left;
+}
+
+#body {
+	width:100%;
+	border:solid 1px #000000;
+	font-size:10pt;
+	line-height:14pt;
+}
+#body div {
+	
+}
+
+.tblListData {
+	font-size:11px;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	border:solid 1px #cccccc;
+	border-collapse: collapse;
+	background:#FFFFFF;
+}
+.tblListData thead {
+}
+.tblListData thead th {
+	background: #dbdcdd url('../images/3.png') repeat-x;
+	font-family: verdana, arial;
+	text-align:left;
+	border:solid 1px #000000;
+	padding:3px;
+	font-size:10px;
+}
+.tblListData tbody tr:hover {
+	/*cursor:pointer;
+	background-color:#fce700;*/
+	background-color:#e1f2f7;
+}
+.tblListData tbody td {
+	border:solid 1px #000000;
+	padding:0 3px 0 3px;
+	height:26px;
+}
+.tblListData a:link,a:visited {
+	text-decoration:none;color:#333333;
+}
+.tblListData a:hover {
+	text-decoration:underline;color:#000000;
+}
+.tblListData img {
+	border:0;
+}
+.tblListData tr.notSelected {
+	
+}
+.tblListData tr.selected {
+	background: #9DE1F3 url('../images/bg_tr_selected.png') repeat-x;
+}
+
+h1 {}
+h2 {}
+h3 {}

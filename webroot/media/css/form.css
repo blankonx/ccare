@@ -1,0 +1,230 @@
+
+.formTitle {
+	font-size:14px;
+	font-weight:bold;
+	margin-left:10px;
+}
+.tblInput {
+	font: 12px "Lucida Sans Unicode", "Lucida Grande";
+}
+table.tblInput td {
+	height:25px;
+	vertical-align:top;
+}
+/*
+.tblInput input[type="text"].error, .tblInput select.error, .tblInput textarea.error {
+	border:dotted 1px #FFCCCC;
+	font: 11px "Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	background:#D9E7F2 url('../../webroot/images/but_bg.gif') 0 0 repeat-x;
+	margin:3px 3px 3px 3px;
+	padding-left:2px;
+}
+*/
+.tblInput input[type="text"], .tblInput input[type="text"].readonly, .tblInput input[type="password"], .tblInput select, .tblInput textarea, .input_default {
+	font: 11px "Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	margin:3px 3px 3px 3px;
+	/*font-weight:bold;
+	text-transform:uppercase;*/
+	padding-left:2px;
+	border:1px solid #bbb;
+}
+.tblInput input[type="text"]:focus, .tblInput input[type="password"]:focus, .tblInput select:focus, .input_default:focus {
+	border:solid 2px #00A7D4;
+	background:#FFFFFF url('../images/but_bg_focus.gif') repeat-x;
+	margin:2px 2px 2px 2px;
+}
+.tblInput textarea:focus {
+	border:solid 2px #00A7D4;
+	margin:2px 2px 2px 2px;
+}
+.tblInput input[type="text"].readonly {
+	padding-left:2px;
+	border:1px solid #bbb;
+	background:#FFFFFF url('../images/but_bg_readonly.gif') 50% 0 repeat-x;
+	margin:3px 3px 3px 3px;
+}
+.tblInput input[type="text"].readonly:focus {
+	border:solid 2px #00A7D4;
+	background:#FFFFFF url('../images/but_bg_readonly_focus.gif') 50% 0 repeat-x;
+	margin:2px 2px 2px 2px;
+}
+.tblInput input[type="text"].readonly2 {
+	padding-left:2px;
+	border:1px solid #bbb;
+	background:#DCDCDC;
+	margin:3px 3px 3px 3px;
+}
+.tblInput input[type="text"].readonly2:focus {
+	border:solid 2px #00A7D4;
+	background:#DCDCDC;
+	margin:2px 2px 2px 2px;
+}
+.tblInput input[type="button"], .tblInput input[type="submit"], .tblInput input[type="reset"] {
+	/*height:22px;*/
+	background:#F2F2F2;
+	border:solid 1px #000000;
+	font: 14px tahoma, verdana, arial;
+	margin:3px 3px 3px 3px;
+	font-weight:bold;
+	background:url('../images/but_bg_focus.gif') repeat-x;
+	/*text-transform:uppercase;*/
+	height:27px;
+	min-width:90px;
+	letter-spacing:1px;
+}
+.tblInput input[type="button"]:focus, .tblInput input[type="submit"]:focus, .tblInput input[type="reset"]:focus {
+	border:solid 2px #00A7D4;
+	margin:3px 3px 3px 3px;
+	background:url('../images/but_bg_focus.gif') repeat-x;
+}
+form label.error {
+	color: #FF0000;
+	font-size: 100%;
+	width:308px;
+	display: none;
+	clear:both;
+	padding-left:10px;
+}
+.tblInput hr {
+	border-color:#97c8f2;
+}
+
+/* Success, notice and error boxes, I put it from blueprintCSS
+-------------------------------------------------------------- */
+
+fieldset.used {
+	/*border:solid 1px #328AB2;*/
+	border:solid 1px #A8A6A6;
+	font: 12px "Lucida Sans Unicode", "Lucida Grande";
+}
+fieldset.used legend {
+	color:#FF3333;
+}
+fieldset.unused {
+	border:solid 1px #cccccc;
+}
+fieldset.unused legend {
+	color:#cccccc;
+}
+.smallSearchContainer {
+	background:url('../images/bg_small_search.png') 0 50% repeat-x;
+	position:absolute;
+	z-index:3;
+	border:solid 8px #d4ec7b;
+	color:#FFFFFF;
+	font: 10px "Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+}
+.smallSearch {
+	padding:20px 10px 10px 10px;
+}
+.smallSearch input[type="text"], .smallSearch select, .smallSearch textarea {
+	
+	font: 11px "Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	margin:3px 3px 3px 3px;
+	padding-left:2px;
+	border:1px solid #bbb;
+}
+.smallSearch input[type="text"]:focus, .smallSearch select:focus, .smallSearch textarea:focus {
+	border:solid 2px #ff9900;
+	background:#FFFFFF url('../images/but_bg_focus.gif') repeat-x;
+	margin:2px 2px 2px 2px;
+}
+
+.smallSearch img {
+	margin-bottom:-10px;
+}
+.closeSmallSearch {
+	float:right;
+	width:16px;
+	height:16px;
+	background:url('../images/close.png') 0 0 no-repeat;
+	cursor:pointer;
+	margin:2px;
+}
+label {
+	cursor:pointer;
+}
+#chat_submit {
+    border:solid 1px #000000;
+    font-size:10px;
+}
+
+/*FOR REPORT MODULE*/
+/*
+.tblInputReport {
+	font: 12px "Lucida Sans Unicode", "Lucida Grande";
+}
+table.tblInputReport td {
+	height:25px;
+	vertical-align:top;
+}
+.tblInputReport input[type="text"], .tblInputReport input[type="text"].readonly, .tblInputReport input[type="password"], .tblInputReport select, .tblInputReport textarea, .input_default {
+	font: 11px "Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	margin:3px 3px 3px 3px;
+	padding-left:2px;
+	border:1px solid #bbb;
+}
+.tblInputReport input[type="text"]:focus, .tblInputReport input[type="password"]:focus, .tblInputReport select:focus, .input_default:focus {
+	border:solid 2px #00A7D4;
+	background:#FFFFFF url('../images/but_bg_focus.gif') repeat-x;
+	margin:2px 2px 2px 2px;
+}
+.tblInputReport textarea:focus {
+	border:solid 2px #00A7D4;
+	margin:2px 2px 2px 2px;
+}
+.tblInputReport input[type="text"].readonly {
+	padding-left:2px;
+	border:1px solid #bbb;
+	background:#FFFFFF url('../images/but_bg_readonly.gif') 50% 0 repeat-x;
+	margin:3px 3px 3px 3px;
+}
+.tblInputReport input[type="text"].readonly:focus {
+	border:solid 2px #00A7D4;
+	background:#FFFFFF url('../images/but_bg_readonly_focus.gif') 50% 0 repeat-x;
+	margin:2px 2px 2px 2px;
+}
+.tblInputReport input[type="text"].readonly2 {
+	padding-left:2px;
+	border:1px solid #bbb;
+	background:#DCDCDC;
+	margin:3px 3px 3px 3px;
+}
+.tblInputReport input[type="text"].readonly2:focus {
+	border:solid 2px #00A7D4;
+	background:#DCDCDC;
+	margin:2px 2px 2px 2px;
+}
+.tblInputReport hr {
+	border-color:#97c8f2;
+}
+.btn_report {
+	height:35px;
+	border:solid 1px #ff0000;
+	font: 14px verdana, arial;
+	padding-left:33px;
+	margin:3px;
+	font-weight:bold;
+	letter-spacing:1px;
+	background-color:#ffcccc;
+}
+.btn_report:hover {
+	margin:4px 2px 2px 4px;
+	background-color:#FFEEEE;
+}
+.btn_process {
+	background-image:url('../images/chart_line.png');
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+.btn_print {
+	background-image:url('../images/printer.png');
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+.btn_pdf{
+	background-image:url('../images/pdf.png');
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+* */

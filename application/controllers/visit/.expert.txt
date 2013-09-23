@@ -1,0 +1,105 @@
+
+    function _expert_extract($curdata = array(), $data) {
+        //$x=0;
+        //$i=0;
+        $newdata = array();
+        //$data = array_reverse($data);
+        //print_r($data);
+		$xdata = array();
+		$o=0;
+		for($i=0;$i<sizeof($data);$i++) {
+			if(array_key_exists($data[$i]['exid'], $xdata)) {
+				//print_r($);
+				//echo "ada";
+				//print_r(array_keys($xdata));
+				$kunci = @array_keys($xdata[$o]);
+				echo $i . " : ";
+				print_r($kunci);
+				$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+				$xdata[$data[$i]['exparentid']][$data[$i]['exid']]['sub'] = $xdata[$data[$i]['exid']];
+				//unset($xdata[$data[$i]['exid']]);
+				//$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+				//$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+			} else {
+				$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+				$o++;
+			}
+			//$xxx = $xdata[$data[$i]['exparentid']][$data[$i]['exid']];
+			//if(in_array()) {}
+			next($xdata);
+		}
+		print_r($xdata);
+		$hasil = array();
+
+        foreach($data as $key => $val) {
+            if($data[$key]['exparentid'] == NULL || !$data[$key]['exparentid'] && $data[$key]['exid'] == $data[$key-1]['exparentid']) {
+                //$kunci[0][$data[$key]['exid']] = $data[$key];
+                //$xkunci = $kunci[0];
+                $data[$key]['child'][] = $data[$key-1];
+                $newdata[$key]['child'][] = $data[$key-1];
+                unset($data[$key-1]);
+
+            } elseif($data[$key]['exid'] == $data[$key-1]['exparentid']) {
+                $data[$key]['child'][] = $data[$key-1];
+				$newdata[$key]['child'][] = $data[$key-1];
+                unset($data[$key-1]);
+                //$kunci[0][$data[$key]['exparentid']][$data[$key]['exid']] = $data[$key];
+                //$kunci[] = $kunci[$data[$key]['exparentid']];
+                //unset($data[$key]);
+            } else {
+                //$last_data = $data[$key];
+                //$x++;
+                //$this->_expert_extract($data);
+                //continue;
+            }
+            //$i++;
+        }
+        /*
+        //for($i=(sizeof($data)-1);$i)
+        for($i=0;$i<sizeof($data);$i++) {
+            if($data[$i]['exparentid'] == NULL || !$data[$i]['exparentid']) {
+                $kunci[0][$data[$i]['exid']] = $data[$i];
+                $xkunci = $kunci[0];
+
+            } elseif($data[$i]['exparentid'] == $data[$i-1]['exid']) {
+                $kunci[0][$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+                //$kunci[] = $kunci[$data[$i]['exparentid']];
+                //unset($data[$i]);
+            } else {
+                //$x++;
+                //$this->_expert_extract($data);
+                continue;
+            }
+        }
+        */
+		print_r($data);
+		print_r($newdata);
+        //return $data;
+        //print_r($cur);
+    }
+
+
+    
+    function _expert_extract($data) {
+		$xdata = array();
+		$o=0;
+		for($i=0;$i<sizeof($data);$i++) {
+			if(array_key_exists($data[$i]['exid'], $xdata)) {
+				$kunci = @array_keys($xdata[$o]);
+				//$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+				//$xdata[$data[$i]['exparentid']][$data[$i]['exid']]['sub'] = $xdata[$data[$i]['exid']];
+				$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $xdata[$data[$i]['exid']];
+				//$xdata[$data[$i]['exparentid']][$data[$i]['exid']]['anamnese_id'] .= ", " . $data[$i]['anamnese_id'];
+               $last = $xdata[$data[$i]['exid']];
+				unset($xdata[$data[$i]['exid']]);
+			} else {
+				$xdata[$data[$i]['exparentid']][$data[$i]['exid']] = $data[$i];
+                $last2[] = $data[$i];
+				$o++;
+			}
+			next($xdata);
+		}
+		print_r($last);
+		print_r($last2);
+		print_r($xdata);
+    }

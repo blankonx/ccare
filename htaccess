@@ -1,0 +1,10 @@
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE text/css
+</IfModule>
+
+RewriteEngine on
+RewriteRule ^$ index.php [L]
+RewriteCond $1 !^(index\.php|webroot|ChartExporter|robots\.txt|data\.xml|favicon\.ico)
+RewriteRule ^(.*)$ index.php/$1 [L]

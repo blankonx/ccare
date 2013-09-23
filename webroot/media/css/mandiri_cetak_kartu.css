@@ -1,0 +1,92 @@
+body {
+	font-family:arial, verdana;
+	font-size:9pt;
+	overflow:hidden;
+}
+.kartu {
+	background-image:url(../images/background-kartu.png);
+	background-repeat:no-repeat;
+	width:170mm;
+	height:54mm;
+}
+.depan {
+	float:left;
+	width:87mm;
+}
+.belakang {
+	float:left;
+	width:80mm;
+}
+.text-kartu-jpkm-depan {
+	float:left;
+	color:#fff;
+	font-family:'Times New Roman', Verdana, Arial;
+	font-size:12pt;
+	margin-top:2mm;
+	margin-left:8mm;
+}
+.logo {
+	float:left;
+	margin-top:2mm;
+	margin-left:1.5mm;
+}
+.text-kabupaten-depan {
+	float:left;
+	color:#fff;
+	font-family:'Times New Roman', Verdana, Arial;
+	font-size:9pt;
+	margin-top:2mm;
+	margin-left:1.5mm;
+}
+.text {
+	float:left;
+	width:60mm;
+	max-width:60mm;
+	overflow:hidden;
+	height:14mm;
+	margin-top:1mm;
+	margin-left:2mm;
+}
+.text div {
+	line-height:10pt;
+}
+.barcode {
+	float:left;
+	width:25mm;
+	max-width:2.5cm;
+	overflow:hidden;
+	margin-top:1mm;
+}
+.foto {
+	margin-top:-4mm;
+	margin-left:6cm;
+	width:2cm;
+	height:2cm;
+	max-height:2cm;
+	overflow:hidden;
+	border:solid 1px #000;
+}
+.berlaku {
+	float:left;
+	margin-left:2mm;
+}
+.judul-belakang {
+	color:#fff;
+	margin: 2mm auto;
+	font-family:arial;
+	font-size:14pt;
+	text-align:center;
+	font-weight:bold;
+}
+.text-belakang {
+	width:82mm;
+	max-width:82mm;
+	overflow:hidden;
+	height:37mm;
+	margin-top:3mm;
+	font-size:6.5pt;
+	line-height:6.5pt;
+}
+.text-belakang ol {
+	padding-left:5mm;
+}

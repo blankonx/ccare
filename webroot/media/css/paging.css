@@ -1,0 +1,22 @@
+.paging {
+	margin:5px;
+	font-weight:bold;
+}
+.paging span {
+	/*current page*/
+	color:#B71515;
+	border: solid 1px #3E5BB1;
+	padding:3px;
+	background:#FFFFFF;
+}
+.paging a:link, .paging a:visited {
+	color:#3E5BB1;
+	text-decoration:none;
+	border: solid 1px #bac8f2;
+	padding:3px;
+}
+.paging a:hover {
+	color:#0E2E8B;
+	text-decoration:none;
+	border: solid 1px #3E5BB1;
+}

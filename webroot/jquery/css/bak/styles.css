@@ -1,0 +1,1195 @@
+
+/* Dragon Interactive -- Altar Stylesheet */
+/*" Rev 0.1 -- Last Updated December 21, 2007 "*/
+
+#altar {
+	background: #070707;
+	overflow: hidden;
+	position: relative;
+	height: 270px;
+	z-index: 1;
+	}
+
+/* Materials */
+
+.aluminum {
+	background: #555 url(../i/altar/materials.jpg) repeat-x top;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: 0 0 0 -999px;
+	height: 270px;
+	width: 300px;
+	z-index: 6;
+	}
+
+.dragonium {
+	background: #111 url(../i/altar/materials.jpg) repeat-x bottom;
+	position: absolute;
+	top: 0;
+	right: 50%;
+	margin: 0 -999px 0 0;
+	height: 270px;
+	width: 300px;
+	z-index: 6;
+	}
+
+/* Stage */
+
+#stage {
+	background: url(../i/altar/stage_argent_left.jpg) no-repeat top center;
+	xoverflow: hidden;
+	margin: 0 auto;
+	position: relative;
+	height: 270px;
+	width: 100%;
+	max-width: 1400px;	
+	min-width: 970px;
+	z-index: 5;
+	}
+
+.home #stage {
+	background:  url(../i/altar/stage_argent_center.jpg) no-repeat top center;
+	}
+
+/* Curtains */
+
+.curtain {
+	background:  url(../i/altar/curtains.png) no-repeat top right;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	height: 270px;
+	width: 390px;
+	z-index: 17;
+	}
+
+.curtain.right { 
+	background-position: bottom left;
+	left: auto;
+	right: 0px;
+	}
+
+/* Matte */
+
+#altar .matte {
+	background: url(../i/altar/matte.png) no-repeat top left;
+	display: none;
+
+	position: absolute;
+	top: 156px;
+	left: 50%;
+	margin: 0 0 0 -700px;
+	height: 63px;
+	width: 523px;
+	z-index: 13;
+	}
+
+.safari #altar .matte { display: block; }
+
+/* Argent */
+
+h1.argent {
+	background: url(../i/altar/argent_whitecloud.png) no-repeat top left;
+	background: transparent;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin: 0 0 0 -395px;
+	width: 811px;
+	height: 231px;
+	z-index: 5;
+	}
+
+h1.argent {
+	background: url(../i/altar/argent_raw.png) no-repeat top left;
+	height: 156px;
+	width: 156px;
+	margin: 23px 0 0 -418px;
+	opacity: 0.5;
+	display: none;
+	z-index: 20;
+	}
+
+.home h1.argent {
+	background: transparent;
+	display: block;
+	margin: 0 0 0 -395px;
+	height: 231px;
+	width: 811px;
+	z-index: 5;
+	}
+
+h1.argent span { display: none; }
+
+/* Trailer Splash */
+
+#trailer {
+	background: url(../i/altar/stage.jpg) no-repeat top center;
+	display: block;
+	position: relative;
+	z-index: 16;
+	height: 230px;
+	width: 100%;
+	}
+
+.senior #trailer .bar,.senior #trailer .bar_reflect,.professor #trailer .bar,.professor #trailer .bar_reflect { display: none; }
+
+.timeline #trailer .bar,.timeline #trailer .bar_reflect { display: block; }
+
+#trailer .bar {
+	display: block;
+	position: absolute;
+	top: 75px;
+	left: 50%;
+	margin: 0 0 0 -95px;
+	}
+
+#trailer .bar_reflect {
+	position: absolute;
+	display: block;
+	top: 180px;
+	left: 50%;
+	margin: 0 0 0 -95px;
+	}
+
+#trailer .loading { display: block; }
+
+/* Notices & Construction Message */
+
+#notice {
+	background: #000 url(../i/altar/stage_construction.jpg) no-repeat top center;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 12;
+	height: 230px;
+	width: 100%;
+	}
+
+.freshman.construction #notice { 
+	background: url(../i/altar/stage_construction.jpg) no-repeat top center;
+	display: block;
+	}
+
+.unfinished #notice { 
+	background: url(../i/altar/stage_unfinished.jpg) no-repeat top center;
+	display: block;
+	}
+
+.unfinished .trailer { display: none; }
+
+.construction #notice a.close {
+	background: transparent;
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	top: 122px;
+	left: 50%;
+	margin: 0 0 0 -112px;
+	height: 37px;
+	width: 207px;
+	z-index: 20;
+	}
+
+.construction #notice a.close .hover {
+	background: url(../i/altar/stage_construction_hover.jpg) no-repeat top left;
+	display: block;
+	height: 100%;
+	width: 100%;
+	}
+
+/* Markup Sample */
+/*" "*//* General Page Stuff */
+
+.contact #footer {
+	margin: 14px 0 0 0;
+	}
+
+#contact_information {
+	margin-top: 7px !important;
+	}
+
+/* Contact Form Stuff (.c-item) */
+
+.contact .clearsection {
+	float: left;
+	width: 370px;
+	}
+
+.c-item {
+	clear: left;
+	margin: 0 0 7px 0;
+	}
+
+.c-item label {
+	color: #555;
+	display: block;
+	font-size: 11px;
+	float: left;
+	margin: 3px 10px 0 0;
+	text-align: right;
+	width: 120px;
+	}
+
+.c-item input {
+	background: #000 url(../i/forms/input.jpg) no-repeat top left;
+	border: 1px solid #1c1c1c;
+	border: 0 none;
+	color: #aaa;
+	float: left;
+	font-size: 11px;
+	line-height: 22px;
+	outline: none;
+	display: block;
+	padding: 6px 7px 0px 7px;
+	margin: 0 0 7px 0;
+	height: 19px;
+	width: 226px;
+	}
+
+.c-item input:hover {
+	background-position: top right;
+	}
+
+.c-item .input-error {
+	background-position: -480px 0;
+	}
+
+.c-item input:focus,.c-item input:active {
+	background-position: -240px 0 !important;
+	color: #fff;
+	}
+
+.c-item textarea {
+	background: #000 url(../i/forms/textarea.jpg) no-repeat bottom left;
+	border: 1px solid #1c1c1c;
+	border: 0 none;
+	color: #ccc;
+	font: 11px/22px "lucida grande",verdana,sans-serif;
+	float: left;
+	display: block;
+	padding: 5px 7px;
+	margin: 0 0 7px 0;
+	width: 226px;
+	height:132px;
+	}
+
+.contact .submit_button {
+	clear: left;
+	margin: 0 0 14px 130px;
+	}
+
+
+/* need invalid input highlighting (or empty textarea)*/
+
+/* need some sort of loading screen in stage insertion */
+
+/* Features Stylesheet */
+
+#interior .features {
+	clear: left;
+	list-style: none;
+	padding: 0px 0 0 0;
+	margin: -4px 0 0 0;
+	}
+
+#interior .features li {
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 0 0 14px 0;
+	}
+
+.mocha #interior .features li { margin: 0 10px 0 0; }
+
+.mocha #interior .features li.last { margin-right: 0; }
+
+#interior .features li a {
+	background: #000;
+	display: block;
+	position: relative;
+	text-decoration: none;
+	height: 122px;
+	width: 222px;
+	}
+
+#interior li a span {
+	display: none;
+	}
+	
+#interior .features .girlgamer { background: url(../i/features/girlgamer.jpg) no-repeat bottom left; }
+#interior .features .bullspot { background: url(../i/features/bullspot.jpg) no-repeat bottom left; }
+#interior .features .noisefreak { background: url(../i/features/nf.jpg) no-repeat bottom left; }
+#interior .features .thf { background: url(../i/features/thf.jpg) no-repeat bottom left; }
+#interior .features .timeline { background: url(../i/features/timeline.jpg) no-repeat bottom left; }
+#interior .features .labs { background: url(../i/features/labs.jpg) no-repeat bottom left; }
+#interior .features .a1_logo { background: url(../i/features/a1_logo.jpg) no-repeat bottom left; }
+#interior .features .a2 { background: url(../i/features/a2.jpg) no-repeat bottom left; }
+#interior .features .a2_blur { background: url(../i/features/a2_blur.jpg) no-repeat bottom left; }
+
+#interior .features span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	height: 122px;
+	width: 222px;
+	}
+
+.mocha #interior .features span.hover { display: block; }
+
+#interior .features .girlgamer .hover { background: url(../i/features/girlgamer.jpg) no-repeat top left; }
+#interior .features .bullspot .hover { background: url(../i/features/bullspot.jpg) no-repeat top left; }
+#interior .features .noisefreak .hover { background: url(../i/features/nf.jpg) no-repeat top left; }
+#interior .features .thf .hover { background: url(../i/features/thf.jpg) no-repeat top left; }
+#interior .features .timeline .hover { background: url(../i/features/timeline.jpg) no-repeat top left; }
+#interior .features .labs .hover { background: url(../i/features/labs.jpg) no-repeat top left; }
+#interior .features .a1_logo .hover { background: url(../i/features/a1_logo.jpg) no-repeat top left; }
+#interior .features .a2 .hover { background: url(../i/features/a2.jpg) no-repeat top left; }
+#interior .features .a2_blur .hover { background: url(../i/features/a2_blur.jpg) no-repeat top left; }
+
+
+/* Code Sample */
+/*"
+
+<ul class="features">
+
+<li><a href="http://girlgamer.com" class="tip"><span class="tt">Current Project: </span><span>Girl Gamer</span></a></li>
+<li><a href="http://bullspot.com" class="tip"><span class="tt">Featured Project: </span><span>Bullspot</span></a></li>
+<li><a href="http://dragoninteractive.com/about/timeline" class="tip"><span class="tt">Next Available: </span><span>January 2008</span></a></li>
+
+</ul>
+
+"*//* Dragon Interactive -- Navigation Stylesheet */
+/*" Rev 0.2 -- Last Updated December 17, 2007 "*/
+
+div#navigation {
+	background: url(../i/navigation/bar.jpg) repeat-x top;
+	position: relative;
+	height: 70px;
+	z-index: 2;
+	}
+
+/* Logotype */
+
+a#logotype {
+	background: url(../i/navigation/logotype.jpg) no-repeat top left;
+	display: block;
+	height: 70px;
+	width: 119px;
+	
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -465px; /* 960/2 + 10px*/
+	}
+
+a#logotype h1,a#logotype span { display: none;  }
+
+xa#logotype:hover { background-position: bottom left; }
+
+a#logotype  .hover {
+	background: url(../i/navigation/logotype.jpg) no-repeat bottom left;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 70px;
+	width: 119px;
+	}
+
+x.home #logotype { display:none; }
+
+/* Main Navigation */
+
+#navigation ul.level_0 {
+	height: 70px;
+	
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -246px; 
+	}
+
+#navigation ul .home,#navigation ul .services,#navigation ul .portfolio,#navigation ul .about,#navigation ul .contact {
+	cursor: pointer;
+	float: left;
+	list-style: none;
+	}
+
+#navigation ul a.main {
+	background: url(../i/navigation/sprite.jpg) no-repeat top left;
+	display: block;
+	outline: none;
+	position: relative;
+	height: 70px;
+	text-decoration: none;
+	width: auto;
+	}
+
+#navigation ul a.main span { display:none; }
+
+#navigation ul a.main span.tt {
+	padding: 3px 10px 4px 10px;
+	left: 0;
+	}
+
+/* Standard Links (div#navigation ul li a.main) */
+
+#navigation ul .home a.main {
+	background-position: 0 0;
+	width: 102px;
+	z-index: 1;
+	}
+
+#navigation ul .services a.main {
+	background-position: -102px 0;
+	width: 115px;
+	z-index: 2;
+	}
+
+#navigation ul .portfolio a.main {
+	background-position: -217px 0;
+	width: 120px;
+	z-index: 3;
+	}
+
+#navigation ul .about a.main {
+	background-position: -337px 0;
+	width: 100px;
+	z-index: 4;
+	}
+
+#navigation ul .contact a.main {
+	background-position: -437px 0;
+	width: 115px;
+	z-index: 5;
+	}
+
+/* Active States (Body tag matchup) (Sprite Level 2) ( y = -70px ) */
+
+.home #navigation .home a.main { background-position: 0 -70px; z-index: 6; }
+.services #navigation .services a.main { background-position: -102px -70px; z-index: 6; }
+.portfolio #navigation .portfolio a.main { background-position: -217px -70px; z-index: 6; }
+.about #navigation .about a.main { background-position: -337px -70px; z-index: 6; }
+.contact #navigation .contact a.main { background-position: -437px -70px; z-index: 6; }
+
+/*
+.home #navigation .home a.main { background-position: 0 -210px; z-index: 6; }
+.services #navigation .services a.main { background-position: -102px -210px; z-index: 6; }
+.portfolio #navigation .portfolio a.main { background-position: -217px -210px; z-index: 6; }
+.about #navigation .about a.main { background-position: -337px -210px; z-index: 6; }
+.contact #navigation .contact a.main { background-position: -437px -210px; z-index: 6; }
+*/
+
+/* Active State Right Adjacents (Body tag matchup staggered 1 right) ( y = -140px ) */
+
+.home #navigation .services a.main { background-position: -102px -140px; }
+.services #navigation .portfolio a.main { background-position: -217px -140px; }
+.portfolio #navigation .about a.main { background-position: -337px -140px;  }
+.about #navigation .contact a.main { background-position: -437px -140px; }
+
+/* Hovers (blues) (1px wider to the left) ( y = -280px ) */
+
+#navigation a.main span.hover {
+	background: url(../i/navigation/sprite.jpg) no-repeat top left;
+	cursor: pointer !important;
+	display: block !important; /* Overriding previous span hide */
+	padding: 0 1px 0 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 70px;
+	width: 100%;
+	z-index: 100;
+	}
+
+#navigation .home a.main .hover {
+	background-position: 0 -280px;
+	
+	padding: 0;
+	}
+
+#navigation .services a.main .hover {
+	background-position: -103px -280px;
+	background-position: -102px -280px;
+	xbackground-position: -102px -280px;
+	}
+
+#navigation .portfolio a.main .hover {
+	background-position: -219px -280px;
+	background-position: -218px -280px;
+	xbackground-position: -217px -280px;
+	}
+
+#navigation .about a.main .hover {
+	background-position: -340px -280px;
+	background-position: -339px -280px;
+	xbackground-position: -337px -280px;
+
+	}
+
+#navigation .contact a.main .hover {
+	background-position: -441px -280px;
+	background-position: -440px -280px;
+	xbackground-position: -437px -280px;
+
+	xpadding: 0;
+	}
+
+/* Active State Hovers (oranges) (y = - 210px ) */
+
+.home #navigation .home a.main .hover { background-position: 0 -210px; padding: 0; }
+.services #navigation .services a.main .hover { background-position: -102px -210px; padding: 0; }
+.portfolio #navigation .portfolio a.main .hover { background-position: -217px -210px;  padding: 0; }
+.about #navigation .about a.main .hover { background-position: -337px -210px; padding: 0; }
+.contact #navigation .contact a.main .hover { background-position: -437px -210px; padding: 0; }
+
+/* Subnavs (Level 1) */
+
+#navigation .stingray { position: relative; }
+
+#navigation ul.level_1 {
+	background: transparent;
+	display: none;
+	list-style: none;
+	margin: 0 0 0 0;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 175px;
+	}
+
+#navigation ul.level_1 li {
+	margin: 0 0 0px 0;
+	}
+
+#navigation ul.level_1 a {
+	background: #ccc;
+	color: #333;
+	display: block;
+	font: 12px/22px "lucida grande",verdana,sans-serif;
+	opacity: 0.85;
+	padding: 5px 10px;
+	text-decoration: none;
+	}
+	
+#navigation ul.level_1 a:hover { opacity: 1; }
+
+/* Subnavs (Level 2) */
+
+#navigation ul.level_2 { display:none; }
+
+
+/* Progress Bar */
+
+#progress {
+	background: url(../i/navigation/progress.jpg) no-repeat top left;
+	display: block;
+	display: none;
+	height: 70px;
+	width: 121px;
+
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: 330px; /* 960/2 + 10px*/
+	z-index: 50;
+	}
+
+#progress span { display: none; }
+
+/* Markup Specimen */
+/*"
+<div id="navigation">
+
+<a href="http://dragoninteractive.com" id="logotype">
+<h1>Dragon Interactive</h1>
+</a>
+
+<ul class="level_0">
+<li class="home"><a href="/" class="main">Home</a></li>
+
+<li class="portfolio stingray">
+	<a href="/portfolio">Portfolio</a>
+
+	<ul class="level_1">
+	
+		<li class="loaded project">
+		<a href="/portfolio">By Project</a>
+			<ul class="level_2">
+			<li><a href="/portfolio/bullspot">Bullspot</a></li>
+			<li><a href="/portfolio/girlgamer">Girl Gamer</a></li>
+			<li><a href="/portfolio/thf">The Hosting Factory</a></li>
+			<li><a href="/portfolio/aprilzero">Apri1 Zero</a></li>
+			<li><a href="/portfolio/amadeus">Amadeus</a></li>
+			</ul>
+		</li>
+
+		<li class="loaded type">
+		<a href="/portfolio/type/logos">By Type</a>
+			<ul class="level_2">
+			<li><a href="/portfolio/type/logos">Logos</a></li>
+			<li><a href="/portfolio/type/cards">Business Cards</a></li>
+			<li><a href="/portfolio/type/design">Interface Design</a></li>
+			<li><a href="/portfolio/type/code">Coded Pages</a></li>
+			<li><a href="/portfolio/type/final">Final Sites</a></li>
+			</ul>
+		</li>
+
+	</ul></li>
+
+<li class="services stingray">
+	<a href="/services" class="main">Services</a>
+
+	<ul class="level_1">
+		<li><a href="/services/consulting">Consulting Package</a></li>
+		<li><a href="/services/identity">Identity Package</a></li>
+		<li><a href="/services/design">Design Package</a></li>
+		<li><a href="/services/coding">Coding Package</a></li>
+	
+	</ul></li>
+
+<li class="about stingray">
+	<a href="/about/company" class="main">About</a>
+
+	<ul class="level_1">
+		<li><a href="/about/company">Company</a></li>
+		<li><a href="/about/history">History</a></li>
+		<li><a href="/about/availability">Availability &amp; Timeline</a></li>
+	
+	</ul></li>
+
+<li class="contact"><a href="/contact" class="main">Contact</a></li>
+
+
+</ul>
+
+</div>
+ "*/
+
+/* Dragon Interactive -- Interior Stylesheet */
+/*" Rev 0.1 -- Last Updated December 21, 2007 "*/
+
+#interior {
+	background: transparent;
+	display: block;
+	float: left;
+	margin: 0px 0 0 0;
+	padding: 0 20px 30px 24px;
+	position: relative;
+	top: -20px;
+	height: 250px;
+	width: 686px;
+	z-index: 2;
+	}
+
+#interior .section {
+	background: #0a0a0a url(../i/interior/section/center.jpg) repeat-y top left;
+	margin: 0 0 14px 0;
+	padding: 21px 21px 7px 28px;
+	xwidth: 686px;
+	}
+
+#interior .clearsection {
+	background: transparent;
+	}
+
+.mocha #interior .section { padding: 0; }
+
+#interior .section.topped { xmargin: 0; }
+
+#interior .section .highlight {
+	background: url(../i/interior/section/top.jpg) no-repeat top left;
+	}
+
+#interior .section.topped .highlight { background-image: url(../i/interior/section/top-topped.jpg); }
+
+#interior .section .shadow {
+	background: url(../i/interior/section/bottom.jpg) no-repeat bottom left;
+	display: block;
+	padding: 21px 21px 7px 28px;
+	padding: 28px 28px 18px 42px;
+	width: 637px;
+	width: 616px
+	}
+
+.home #interior .section .shadow {
+	padding: 21px 21px 7px 28px;
+	width: 637px;
+	}
+
+#interior .section.narrow .shadow {
+	width: 220px !important;
+	overflow: hidden;
+	}
+
+.section.narrow { float: right; }
+
+/* Tags Contact Page */
+
+#section-questions,#section-book { display: none; }
+
+/* Markup Sample */
+/*" "*//* Dragon Interactive -- Sideblade */
+/*" Rev 0.1 -- Last Updated December 21, 2007 "*/
+
+#sideblade {
+	xbackground: url(../i/sideblade/sideblade.jpg) no-repeat top left;
+	float: left;
+	margin: 0 0 0 0;
+	position: relative;
+	top: -20px;
+	min-height: 250px;
+	width: 240px;
+	z-index: 2;
+	}
+
+.safari #sideblade { margin: 0 0 0 1px; }
+
+/* Nav */
+
+#sideblade #subnavigation {
+	list-style: none;
+	}
+
+#sideblade #subnavigation li {
+	xbackground: transparent url(../i/sideblade/rule.jpg) no-repeat bottom right;
+	margin: 0 0 0 10px;
+	padding: 0;
+	}
+
+#sideblade #subnavigation li.last { background: transparent; }
+
+#subnavigation li a {
+	background: #222;
+	background: url(../i/subnavigation/sprite.jpg) no-repeat 0 0;
+	color: #aaa;
+	display: block;
+	padding: 14px 21px 14px 20px;
+	padding: 0 21px 0 20px;
+	position: relative;
+	text-decoration: none;
+	height: 87px; /* middle ones */
+	width: 190px;
+	}
+
+#subnavigation li.first a {
+	height: 88px; /* top & bottom buttons are shorter? */
+	}
+
+#subnavigation li.last a {
+	height: 88px; /* top & bottom buttons are shorter? */
+	}
+
+#sideblade #subnavigation li a h3 {
+	color: #fff;
+	font: 14px/21px "lucida grande",verdana,sans-serif;
+	display: none;
+	}
+
+#sideblade #subnavigation li a small {
+	color: #aaa;
+	display: block;
+	display: none;
+	}
+
+#subnavigation li a span { display: none; }
+
+#subnavigation li a span.hover {
+	background: url(../i/subnavigation/sprite.jpg) no-repeat -231px 0;
+	border-top: 1px solid #555;
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	top: -1px;
+	left: 1px;
+	xpadding: 1px 0 0 0;
+	height: 88px;
+	width: 229px;
+	opacity: 0;
+	}
+
+#subnavigation li.first a span.hover { border: 0 none; top: 0; }
+
+
+/* Adjacency Caps */
+
+#subnavigation a .cap {
+	background: transparent url(../i/subnavigation/adjacent.png) no-repeat 0 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 11px;
+	width: 100%;
+	}
+
+/* Sprite Application */
+
+.home #subnavigation .identity a { background-position: 0 0; }
+.home #subnavigation .design a { background-position: 0 -88px; }
+.home #subnavigation .code a { background-position: 0 -175px; }
+
+.home #subnavigation .identity a .hover { background-position: -232px 0px; }
+.home #subnavigation .design a .hover { background-position: -232px -88px; }
+.home #subnavigation .code a .hover { background-position: -232px -175px; }
+
+.services #subnavigation .identity a { background-position: 0 0; }
+.services #subnavigation .design a { background-position: 0 -88px; }
+.services #subnavigation .code a { background-position: 0 -175px; }
+
+.services #subnavigation .identity a .hover { background-position: -232px 0px; }
+.services #subnavigation .design a .hover { background-position: -232px -88px; }
+.services #subnavigation .code a .hover { background-position: -232px -175px; }
+
+.about #subnavigation .company a { background-position: 0 -271px; }
+.about #subnavigation .timeline a { background-position: 0 -359px; }
+.about #subnavigation .faq a { background-position: 0 -446px; }
+
+.about #subnavigation .company a .hover { background-position: -232px -271px; }
+.about #subnavigation .timeline a .hover { background-position: -232px -359px; }
+.about #subnavigation .faq a .hover { background-position: -232px -446px; }
+
+.contact #subnavigation .general a { background-position: 0 -542px; }
+.contact #subnavigation .questions a { background-position: 0 -630px; }
+.contact #subnavigation .book a { background-position: 0 -717px; }
+
+.contact #subnavigation .general a .hover { background-position: -232px -542px; }
+.contact #subnavigation .questions a .hover { background-position: -232px -630px; }
+.contact #subnavigation .book a .hover { background-position: -232px -717px; }
+
+.portfolio #subnavigation .project a { background-position: 0 -813px; }
+.portfolio #subnavigation .type a { background-position: 0 -901px; }
+
+.portfolio #subnavigation .project a .hover { background-position: -232px -813px; }
+.portfolio #subnavigation .type a .hover { background-position: -232px -901px; }
+
+/* Active Buttons (body class matchup) */ /*" +4px for the topping "*/
+
+.services.identity #subnavigation .identity a { background-position: -462px 0; padding-top: 4px; margin-top: -4px; }
+.services.identity #subnavigation .design a .cap { display: block; background-position: bottom right; }
+.services.identity #subnavigation .design a .hover { border-top: 0 none; top: 0; }
+
+.services.design #subnavigation .design a { background-position: -462px -92px; }
+.services.design #subnavigation .identity a .cap { display: block; background-position: top right; top: auto; bottom: 0; }
+.services.design #subnavigation .code a .cap { display: block; background-position: bottom right; }
+.services.design #subnavigation .code a .hover { border-top: 0 none; top: 0; }
+
+.services.code #subnavigation .code a { background-position: -462px -179px; padding-top: 4px; }
+.services.code #subnavigation .design a .cap { display: block; background-position: top right; top: auto; bottom: 0;  }
+
+.services.identity .identity .hover,
+.services.design .design .hover,
+.services.code .code .hover {
+	display: none !important;
+	height: 0px;
+	}
+
+.about.company #subnavigation .company a { background-position: -462px -271px; padding-top: 4px; margin-top: -4px; }
+.about.company #subnavigation .timeline a .cap { display: block; background-position: bottom right; }
+.about.company #subnavigation .timeline a .hover { border-top: 0 none; top: 0; }
+
+.about.timeline #subnavigation .timeline a { background-position: -462px -363px; }
+.about.timeline #subnavigation .company a .cap { display: block; background-position: top right; top: auto; bottom: 0; }
+.about.timeline #subnavigation .faq a .cap { display: block; background-position: bottom right; }
+.about.timeline #subnavigation .faq a .hover { border-top: 0 none; top: 0; }
+
+.about.faq #subnavigation .faq a { background-position: -462px -451px; padding-top: 4px; }
+.about.faq #subnavigation .timeline a .cap { display: block; background-position: top right; top: auto; bottom: 0;  }
+
+.about.company .company .hover,
+.about.timeline .timeline .hover,
+.about.faq .faq .hover {
+	display: none !important;
+	height: 0px;
+	}
+
+.contact.general #subnavigation .general a { background-position: -462px -542px; padding-top: 4px; margin-top: -4px; }
+.contact.general #subnavigation .questions a .cap { display: block; background-position: bottom right; }
+.contact.general #subnavigation .questions a .hover { border-top: 0 none; top: 0; }
+
+.contact.questions #subnavigation .questions a { background-position: -462px -600px; }
+.contact.questions #subnavigation .questions a { background-position: -462px -634px; }
+.contact.questions #subnavigation .general a .cap { display: block; background-position: top right; top: auto; bottom: 0; }
+.contact.questions #subnavigation .book a .cap { display: block; background-position: bottom right; }
+.contact.questions #subnavigation .book a .hover { border-top: 0 none; top: 0; }
+
+.contact.book #subnavigation .book a { background-position: -462px -721px; padding-top: 4px; }
+.contact.book #subnavigation .questions a .cap { display: block; background-position: top right; top: auto; bottom: 0;  }
+
+.contact.general .general .hover,
+.contact.questions .questions .hover,
+.contact.book .book .hover {
+	display: none !important;
+	height: 0px;
+	}
+
+.portfolio.projects #subnavigation .project a { background-position: -462px -813px; padding-top: 4px; margin-top: -4px; }
+.portfolio.projects #subnavigation .type a .cap { display: block; background-position: bottom right; }
+.portfolio.projects #subnavigation .type a .hover { border-top: 0 none; top: 0; }
+
+.portfolio.type #subnavigation .type a { background-position: -462px -905px; padding-top: 4px; }
+.portfolio.type #subnavigation .project a .cap { display: block; background-position: top right; top: auto; bottom: 0;  }
+
+.portfolio.projects .project .hover,
+.portfolio.type .type .hover {
+	display: none !important;
+	height: 0px;
+	}
+
+
+/* Markup Sample */
+/*" "*//* Dragon Interactive -- Core Stylesheet */
+/*" Rev 0.1 -- Last Updated December 21, 2007 "*/
+
+* {
+	margin: 0;
+	padding: 0; 
+	}
+
+html { height: 100%; min-width: 970px; }
+
+body {
+	background: #111 url(../i/background/body.jpg) repeat-y top center; /* Unecessary? */
+	min-width: 971px;
+	height: 100%;
+	}
+
+#body {
+	background: #ccc url(../i/background/body.jpg) repeat-y top center;
+	background: #111 url(../i/background/body.jpg) repeat-y top center;
+	display: block;
+	margin: 0 auto 0 auto;
+	min-width: 971px;
+	max-width: 1400px;
+	position: relative;
+	z-index: 2;
+	height: auto;
+	}
+
+.container {
+	margin: 0 auto;
+	width: 970px;
+	}
+
+.safari .container { width: 971px; } 
+
+.clear { clear: both; }
+
+#footer {
+	background: url(../i/rules/footer.jpg) repeat-x top;
+	clear: left;
+	clear: both;
+	color: #444;
+	margin: 7px 0 0 0;
+	padding: 14px 0;
+	position: relative;
+	text-align: center;
+	}body.timeline #altar #stage {
+	background-image: url(../i/timeline/timeline.jpg);
+	} /* Dragon Interactive -- Typography */
+/*" Rev 0.1 -- Last Updated December 21, 2007 "*/
+
+body {
+	color: #777;
+	font: 12px/21px "lucida grande",verdana,sans-serif;
+	}
+
+p {
+	color: #777;
+	font: 12px/20px "lucida grande",verdana,sans-serif;
+	margin: 7px 0 14px 0;
+	}
+
+em {
+	color: #ccc;
+	font-size: 12px;
+	}
+
+em.time { color: #e64600; }
+
+p em {
+	color: #aaa;
+	}
+
+small {
+	font: 11px/18px "lucida grande",verdana,sans-serif;
+	}
+	
+a { outline: none; }
+
+hr {
+	background: url(../i/rules/section.jpg) repeat-x top;
+	border: 0 none;
+	clear: both;
+	margin: 10px 0 14px 0;
+	height: 2px;
+	}
+
+br { clear: both; }
+
+/* Headings */
+
+h2 {
+	color: #fff;
+	font: 400 15px/21px "lucida grande",verdana,sans-serif;
+	}
+
+h3, h3 a {
+	color: #fa0;
+	xcolor: #fff;
+	font: 400 15px/21px "lucida grande",verdana,sans-serif;
+	}
+
+h4,h4 a {
+	color: #6dcff6;
+	font: 13px/14px "lucida grande",verdana,sans-serif;
+	margin: 7px 0 0 0;
+	}
+
+h3 a:hover,h4 a:hover { 
+	text-decoration: none;
+	border-bottom: 0 none;
+	}
+
+/* Links (in text) */
+
+p a {
+	border-bottom: 1px dotted #ccc;
+	color: #ccc;
+	xcolor: #fa0;
+	text-decoration: none;
+	}
+
+p a:hover {
+	xborder-color: #fa0;
+	border-color: #fff;
+	xcolor: #fa0;
+	color: #fff;
+	}
+
+/* Lists (in text) */
+
+.section ul {
+	margin: 7px 0 14px 14px;
+	}
+
+/* Selection Colors */
+
+::-moz-selection {
+	background: #00b7ff;
+	xbackground: #ffaa00;
+	color: #fff;
+	} 
+
+::selection {
+	background: #00b7ff;
+	color: #fff;
+	} 
+
+/* In Rainbows */
+
+#stage h1.rainbows,
+#stage h2.rainbows {
+	display: block;
+	font: 36px/1.1 "Lucida Grande",verdana,sans-serif;
+	margin: -75px 0 0 -214px;
+	position: absolute;
+	top: 145px;
+	left: 50%;
+	width: 100%;
+	text-align: left;
+	xtext-transform: uppercase;
+	z-index: 3;
+	}
+
+#stage h2.rainbows { top: 135px; }
+
+#stage h3 {
+	color: #fff;
+	color: #ccc;
+	display: block;
+	font: 16px/1.1 "Lucida Grande",verdana,sans-serif;
+	margin: -75px 0 0 -214px;
+	margin: -75px 0 0 -210px;
+	position: absolute;
+	top: 180px;
+	left: 50%;
+	width: 100%;
+	text-align: left;
+	xtext-transform: uppercase;
+	z-index: 3;
+	}
+
+.rainbow {
+	background: transparent;
+	color: #aaa;
+	display: block;
+	position: relative;
+	height: 1px;
+	overflow: hidden;
+	z-index: 5;
+	}
+
+.rainbow span {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0px;
+	width: 700px;
+	}
+
+.rainbows .highlight {
+	color: #000;
+	color: #fff;
+	display:block;
+	position: absolute;
+	top: -2px;
+	left: 0px;
+	z-index: 4;
+	width: 700px;
+	}
+
+.rainbows .shadow {
+	color: #000;
+	display:block;
+	position: absolute;
+	opacity: 0.5;
+	top: 0px;
+	left: 1px;
+	z-index: 3;
+	width: 700px;
+	}
+
+#footer .rainbows .highlight {
+	display: none;
+	top: 8px;
+	}
+
+#footer .rainbows .shadow {
+	opacity: 0.75;
+	left: 2px;
+	top: 14px;
+	}
+
+/* Markup Sample */
+/*" "*/.tip {
+	position: relative;
+	}
+
+.tip .tt {
+	background: #00aeef;
+	background: #555 url(../i/tooltips/metal.jpg) repeat-x top;
+	border: 1px solid #000;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #999;
+	color: #000;
+	cursor: default;
+	display: block;
+	padding: 3px 10px 4px 10px;
+	position: absolute;
+	left: 24px;
+	text-decoration: none;
+	z-index: 5;
+	}

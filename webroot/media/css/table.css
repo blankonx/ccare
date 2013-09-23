@@ -1,0 +1,95 @@
+
+.tblBorder {
+	width:100%;
+	border:solid 1px #CCCCCC;
+	border-collapse:collapse;
+}
+.tblBorder td, .tblBorder th {
+	border:solid 1px #CCCCCC;
+}
+
+.table_list {}
+.table_list th {
+	font-weight:bold;
+}
+.table_list td {
+}
+.tr_list:hover {
+	background-color:#bfdaff;
+}
+.tblListData {
+	width:100%;
+	font-size:11px;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", tahoma, verdana;
+	border:solid 1px #cccccc;
+	border-collapse: collapse;
+	background:#FFFFFF;
+}
+.tblListData thead {
+}
+.tblListData thead th {
+	background: #dbdcdd url('../images/3.png') repeat-x;
+	font-family: verdana, arial;
+	text-align:left;
+	border:solid 1px #999999;
+	padding:3px;
+	font-size:10px;
+}
+.tblListData tbody tr:hover {
+	/*cursor:pointer;
+	background-color:#fce700;*/
+	background-color:#e1f2f7;
+}
+.tblListData tbody td {
+	border:solid 1px #999999;
+	padding:0 3px 0 3px;
+	height:26px;
+}
+.tblListData a:link,a:visited {
+	text-decoration:none;color:#333333;
+}
+.tblListData a:hover {
+	text-decoration:underline;color:#000000;
+}
+.tblListData img {
+	border:0;
+}
+.tblListData tr.notSelected {
+	
+}
+.tblListData tr.selected {
+	background: #9DE1F3 url('../images/bg_tr_selected.png') repeat-x;
+}
+
+.tblNote {
+	font: 12px "Lucida Sans Unicode", "Lucida Grande";
+}
+.tblNote td {
+	height:16px;
+	vertical-align:top;
+}
+
+.tblHide {
+	position:absolute;
+	z-index:2;
+	left:976px;
+	top:40px;
+	color:#FFFFFF;
+	width:32px;
+	height:32px;
+	background:url('../images/arrow_right_green.png') 0 50% no-repeat;
+	cursor:pointer;
+	opacity:0.3;
+}
+.tblShow {
+	position:absolute;
+	z-index:2;
+	left:976px;
+	top:40px;
+	color:#FFFFFF;
+	width:32px;
+	height:32px;
+	background:url('../images/arrow_left_green.png') 0 50% no-repeat;
+	cursor:pointer;
+	opacity:0.3;
+}

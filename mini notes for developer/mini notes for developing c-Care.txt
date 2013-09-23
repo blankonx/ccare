@@ -1,0 +1,15 @@
+Update script php 5.2 to 5.3
+eregi --> preg_match
+split --> preg_split
+ereg_replace --> preg_replace
+
+#18 Maret 2013
+- kode ref_payment_types di ubah menjadi 2 digit
+- tambah table ref_continue
+- field continue_id di table visit diubah menjadi 2 digit
+- tambah field di table visits ---> specialis (varchar, 150)
+- tambah field di table visits ---> paramedic (varchar, 150)
+- ubah table ref_drugs code menjadi 10 digit (varchar)
+
+default ---> JAMKESDA
+STR ---> 34.1.1.100.1.06.054357

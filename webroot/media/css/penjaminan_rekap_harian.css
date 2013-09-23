@@ -1,0 +1,32 @@
+/*
+ * pake printer LX
+ * CETAK UKURAN 8.5 x 5.5 in
+ * */
+body {
+	font-family:arial, verdana;
+	/*width:8.5in;*/
+	/*border:solid 1px #000;*/
+	font-size:9pt;
+	overflow:hidden;
+}
+.tblListData {
+	font-size:8pt;
+	border:solid 1px #cccccc;
+	border-collapse: collapse;
+	background:#FFFFFF;
+}
+.tblListData thead {
+}
+.tblListData thead th {
+	background: #dbdcdd;
+	font-family: verdana, arial;
+	text-align:left;
+	border:solid 1px #000000;
+	padding:3px;
+	font-size:10px;
+}
+.tblListData tbody td {
+	border:solid 1px #000000;
+	padding:0 3px 0 3px;
+	height:26px;
+}

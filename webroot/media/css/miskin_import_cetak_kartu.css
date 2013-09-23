@@ -1,0 +1,28 @@
+body {
+	font-family:arial, verdana;
+	font-size:9pt;
+	overflow:hidden;
+}
+.kartu {
+	background-image:url(../images/background-kartu-miskin.png);
+	background-repeat:no-repeat;
+	width:170mm;
+	height:54mm;
+}
+.kartu_belakang {
+	width:81mm;
+	max-width:81mm;
+	overflow:hidden;
+	margin:3mm;
+}
+.kartu_depan {
+	width:80mm;
+	max-width:80mm;
+	overflow:hidden;
+	margin:2px;
+	border:solid 1px #000;
+}
+.kartu_depan td {
+	border:solid 1px #000;
+
+}

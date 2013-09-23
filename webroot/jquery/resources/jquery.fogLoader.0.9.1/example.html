@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>fogLoader sample</title>
+		<link href="theme.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>  
+		<script type="text/javascript" src="jquery.fogLoader.0.9.1.pack.js"></script>
+		<script type="text/javascript">
+			var _prog = 0;
+			var _progid = '';
+			function showLoader(type){
+				switch(type){
+					case 'animated': // static message with animated ellipses
+						$('#loader').fogLoader({
+							animated: true
+						});
+						break;
+					case 'spellout': // spells out the default message
+						$('#loader').fogLoader({
+							animated: true,
+							progressSpell: true
+						});
+					    break;
+					case 'custommessage': // uses a custom message
+						$('#loader').fogLoader({
+							message: 'Please Wait',
+							width: 120,
+							fontSize: '9pt',
+							fontFamily: 'Verdana',
+							fontWeight: 'bold'
+						});
+						break;
+					case 'progressbar': // uses a progress bar 
+						_prog = 0;
+						$('#loader').fogLoader({
+							style: 'progressbar'
+						});
+						_progid = setInterval('$("#loader").fogLoader("updateProgress", _prog+=10);',100);
+						break;
+					case 'progressbaranimated': // uses an animated progress bar
+						$('#loader').fogLoader({
+							style: 'progressbar',
+							width: 213,
+							progressValue: 100,
+							progressBarImage: 'images/pbar.gif'
+						});
+						break;
+					default: // static message displaying "loading..."
+						$('#loader').fogLoader();
+						break;
+				}
+				// close the loader after 3 seconds
+				//setTimeout('$("#loader").fogLoader("close");clearInterval(_progid);',3000);
+				// or use to reset loader div to original state
+				setTimeout('$("#loader").fogLoader("destroy");clearInterval(_progid);',3000);
+			}
+		</script>
+	</head>
+	<body>
+		 * loaders will close after 3 seconds. Use ESC key to close before then
+		<h1>Default Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader();" />
+		<h1>Animated Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader('animated');" />
+		<h1>Spelling Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader('spellout');" />
+		<h1>Custom Message Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader('custommessage');" />
+		<h1>Progress Bar Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader('progressbar');" />
+		<h1>Animated Progress Bar Loader</h1>
+		<input type="button" value="Show the Loader!" onclick="showLoader('progressbaranimated');" />
+		<div id="loader"></div>
+	</body>
+</html>

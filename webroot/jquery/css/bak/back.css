@@ -1,0 +1,100 @@
+.back {
+	background: url(../i/sandwich/back_right.png) no-repeat top right;
+	color: #000;
+	display: block;
+	float: left;
+	font-size: 14px;
+	line-height: 18px;
+	left: 21px;
+	margin: 70px 0 35px 15px;
+	position: relative;
+	padding: 0 30px 0 0;
+	text-decoration: none;
+	xwidth: 150px;
+	z-index: 10000;
+	}
+
+
+
+.back.absolutely {
+	background: url(/lib/i/sandwich/back_right.png) no-repeat top right;
+	position: absolute;
+	top: 70px;
+	left: 30px;
+	margin: 0;
+	}
+
+.back span.arrow {
+	background: url(../i/sandwich/back_left.png) no-repeat top left;
+	display: block;
+	padding: 8px 0 0 50px;
+	height: 27px;
+	}
+
+.back.absolutely span.arrow {
+	background: url(/lib/i/sandwich/back_left.png) no-repeat top left;
+	}
+
+.article .back {
+	margin-left: 3%;
+	}
+
+.back:hover {
+	background: url(../i/sandwich/back_hover.png) no-repeat top left;
+	}
+
+.mocha .back:hover {
+	background: url(../i/sandwich/back_right.png) no-repeat top right;
+	}
+
+.back .hover {
+	background: url(../i/sandwich/back_hover_right.png) no-repeat top right;
+	display: block;
+	opacity: 0;
+	position: absolute;
+	xpadding: 0 30px 0 0;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	}
+
+
+.back.absolutely:hover {
+	background: url(/lib/i/sandwich/back_hover.png) no-repeat top left;
+	}
+
+.js .back.absolutely:hover,
+.mocha .back.absolutely:hover {
+	background: url(/lib/i/sandwich/back_right.png) no-repeat top right;
+	}
+
+.back.absolutely .hover {
+	background: url(/lib/i/sandwich/back_hover_right.png) no-repeat top right;
+	}
+
+.back .hover span.arrow {
+	background: url(../i/sandwich/back_hover_left.png) no-repeat top left;
+	display: block;
+	margin: 0 30px 0 0;
+	padding: 0;
+	height: 100%;
+	}
+
+
+.back.absolutely .hover span.arrow {
+	background: url(/lib/i/sandwich/back_hover_left.png) no-repeat top left;
+	}
+
+.back span.text {
+	display: block;
+	font-weight: 800;
+	line-height: 16px;
+	}
+
+.back .rainbows-highlight {
+	position: relative !important;
+	visibility: hidden;
+	}
+
+.back .rainbows-shadow { white-space: pre; }

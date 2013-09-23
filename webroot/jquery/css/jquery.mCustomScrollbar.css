@@ -1,0 +1,37 @@
+.mcs2_container {
+}
+.mcs2_container .customScrollBox {
+	position:relative; 
+	height:100%; 
+	overflow:hidden;
+}
+.mcs2_container .customScrollBox .container {
+	position:relative;
+	float:left;
+}
+.mcs2_container .customScrollBox .content {
+	clear:both;
+}
+.mcs2_container .dragger_container{
+	position:relative;
+	width:10px;
+	height:150px;
+	float:left;
+	cursor:pointer;
+}
+.mcs2_container .dragger{
+	position:absolute; 
+	width:10px; 
+	height:60px;
+	background:#b2b2b2;
+	text-align:center;
+	line-height:60px;
+	color:#666;
+	overflow:hidden; 
+	cursor:pointer;
+	border-radius: .5em;
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+}
+.mcs2_container .dragger_pressed {
+}

@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "cCare-font";
+    src: url(../../fonts/Tahomabd.ttf) format("truetype");
+}
+.logo {
+	font-family:"cCare-font", Georgia, Arial;
+	color:#686868;
+}
+
+.ui-form textarea, .ui-form input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]) {
+	padding: 5px;
+	width:280px;
+}
+
+.ui-form textarea.error, .ui-form input.error:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]) {
+	padding: 5px;
+	width:280px;
+}
+
+.theme-default #slider {
+    width:650px; /* Make sure your images are the same size */
+    height:300px; /* Make sure your images are the same size */
+}

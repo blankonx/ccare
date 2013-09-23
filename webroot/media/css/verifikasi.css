@@ -1,0 +1,37 @@
+/*
+ * pake printer LX
+ * CETAK UKURAN 8.5 x 5.5 in
+ * */
+body {
+	font-family:arial, verdana;
+	/*width:8.5in;*/
+	/*border:solid 1px #000;*/
+	font-size:10pt;
+	overflow:hidden;
+}
+.table-catatan {
+	width:100%;
+	/*overflow:hidden;*/
+}
+.table-catatan td {
+	border-bottom:dashed 1px #000;
+	padding:1px;
+	line-height:11pt;
+}
+.tanda-tangan {
+	width:96mm;
+}
+.halaman {
+	padding: 5pt;
+}
+
+p {
+	text-align:justify;
+}
+
+#halaman-2 {
+	width:100%;
+}
+#table-ben26 {
+	width:100%;
+}
